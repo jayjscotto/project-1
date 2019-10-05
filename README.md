@@ -3,7 +3,7 @@ Project 1
 
 # Contributors:
 Jason Scotto
-Sugeeta Gupita
+Sugeeta Gupta
 Wismy Seide
 Chris Coto
 Ahmed Shallan
