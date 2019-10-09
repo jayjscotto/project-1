@@ -5,45 +5,6 @@
     color: #fff;
     font-size: 80%;
  }
-<<<<<<< HEAD
- /* Three image containers (use 25% for four, and 50% for two, etc) */
- .column {
-    margin-top: 100px;
-    float: left;
-    width: 50%;
-     /* padding: 5px;  */
-  } 
-  
-  /* Clear floats after image containers */
-  .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  .container .btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #555;
-    color: white;
-    font-size: 16px;
-    padding: 12px 24px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
- 
-  @media screen and (max-width: 500px) {
-    .column {
-      width: 100%;
-    }
-  }
-
-
-  
-=======
 
  .home-img {
    height: 9vw;
@@ -55,7 +16,8 @@
   top: 50%;
   color: white;
   cursor: pointer;
-  background-color: rgba(255,102,102,.9);
+  /* background-color: rgba(255,102,102,.9); */
+  background-color: rgb(129, 226, 17);
   font-size: 2em;
   font-weight: 600;
 }
@@ -78,4 +40,3 @@
   opacity: 0.85;
 } 
 
->>>>>>> bd20ca846f5123479e330295981d9edbd0fd6787
