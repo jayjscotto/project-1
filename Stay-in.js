@@ -23,56 +23,60 @@
         for (let i = 0; i < resultsArr.length; i++) {
             
             //sets a row for each card
-            let col = $("<div>").attr("class", "col-3 mx-auto");
+            let col = $("<div>").attr("class", "col-4 mx-auto text-align-center");
     
             //hyperlink for each card image and title
             let link = $("<a>").attr("href", resultsArr[i].recipe.url);
             link.attr("style", "color:inherit");
+            link.attr("class", "mx-auto text-align-center")
             
             //defines card element from bootstrap
-            let card = $("<div>").attr("class", "card mx-auto");
-            card.attr("style", "width: 18rem;")
+            let card = $("<div>").attr("class", "card mx-auto my-3 text-align-center");
+            card.attr("style", "width: 25rem; height: 35rem")
     
     
             //recipe image
             let recipeImage = $("<img>").attr("src", resultsArr[i].recipe.image);
             recipeImage.attr("height", "150");
-            recipeImage.attr("width", "150");
+            recipeImage.attr("width", "250");
             recipeImage.attr("class", "mx-auto");
     
             //recipe title
-            let recipeTitle = $("<h5>").attr("class", "card-title");
+            let recipeTitle = $("<h5>").attr("class", "card-title mx-auto text-align-center");
             recipeTitle.text(resultsArr[i].recipe.label);
     
             //ingridients list to be added to each card
-            let itemlist = $("<p>");
-            let ingredientsArr = resultsArr[i].recipe.ingredientLines;
-            itemlist.text(`Ingredients: ${ingredientsArr}`);
-    
-            ////////////THIS CODE DOESN'T WORK//////////////////
-        
+            let listDiv = $("<div>").attr("style", "overflow:scroll");
+            let itemList = $("<ul>");
+
+            let ingredientsArr = resultsArr[i].recipe.ingredients;
+            console.log(resultsArr[i].recipe.ingredients);
+
             //for loop to add ingridients list to each card
-            for (let j = 0; j < ingredientsArr; j++) {
+            for (let j = 0; j < ingredientsArr.length; j++) {
                 let newLi = $("<li>");
     
-                let ingredient = ingredientsArr[j];
-                ingredient.text(ingredientsArr[j]);
+                let ingredient = ingredientsArr[j].text;
+                console.log(ingredient);
+                newLi.text(ingredient);
     
-                newLi.append(ingredient);
+                itemList.append(newLi);
     
-                itemlistUL.append(newLi);
-    
-                console.log(newLi)
+                console.log(newLi);
             }
 
+            listDiv.append(itemList);
             ///////// Everything else here works //////////////
 
+            //adds list to list div
+
             //adds link to recipe and ingridents to the card
-            card.append(link, itemlist);
+            card.append(link, listDiv);
             //adds the image and recipe title to the link
             link.append(recipeImage, recipeTitle);
             //adds the card to the row
             //adds the row to the body
+            col.append(card);
             $("#recipe-cards").append(col);
 
             //because this is a for loop
