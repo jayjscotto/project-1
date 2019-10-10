@@ -55,13 +55,10 @@
             //for loop to add ingridients list to each card
             for (let j = 0; j < ingredientsArr.length; j++) {
                 let newLi = $("<li>");
-    
                 let ingredient = ingredientsArr[j].text;
                 console.log(ingredient);
                 newLi.text(ingredient);
-    
                 itemList.append(newLi);
-    
                 console.log(newLi);
             }
 
