@@ -113,26 +113,23 @@ p{
 =======
 
 .page-footer{
-    /* background-color:#1a252f; */
     background-color: #2c3e50!important;
     color: #fff;
     font-size: 80%;
  }
 
- .home-img {
-   height: 9vw;
- }
-
- /* Style the button and place it in the middle of the container/image */
-.home-img .btn {
-  position: absolute;
+ Style the button and place it in the middle of the container/image
+.home-img {
+  position: relative;
   top: 50%;
   color: white;
   cursor: pointer;
   background-color: rgba(255,102,102,.9);
+  background-color: rgb(129, 226, 17);
   font-size: 2em;
   font-weight: 600;
-}
+} 
+
 
 #btn-in {
   right: 0;
@@ -148,8 +145,24 @@ p{
   border-color: rgba(255,255,255,0.75)
 }
 
-.btn:hover {
+/* .btn:hover {
   opacity: 0.85;
-} 
+}  */
 
+.home-row {
+  margin-left: 0!important;
+  margin-right: 0!important;  
+}
+
+#stay-in {
+  margin: 0!important;
+}
+
+<<<<<<< HEAD
 >>>>>>> bd20ca846f5123479e330295981d9edbd0fd6787
+=======
+.row {
+  margin-left: 0!important;
+  margin-right: 0!important;
+}
+>>>>>>> 21859403fa56301618071b9b07ae345ed06c7fab
