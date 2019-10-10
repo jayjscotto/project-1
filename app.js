@@ -1,14 +1,11 @@
-//comment
+$(document).ready(function() {
+    $("#stay-in").hide();
+    $("#go-out").hide();
+
+    $("#btn-in").on("click", function(e){
+        e.preventDefault();
+        $("#stay-in").show();
+    })
+})
 
 
-console.log("hello World!!!")
-
-//counts from one up to ten
-function count() {
-    for (let i = 0; i < 10; i ++) {
-        console.log(i);
-    }
-} 
-
-//call count function
-count();

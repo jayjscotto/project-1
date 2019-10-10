@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>EatIn//EatOut</title>
 </head>
 
 <body>
-
-    <div id="Header">
+    <div id="nav" class="container">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="#">
@@ -41,27 +41,89 @@
             </div>
         </nav>
     </div>
-        
-    <div class="row mt-5 home-img">
-        <div class="col p-0 my-5 mx-0">
+
+    <!-- HOME BUTTONS -->
+    <div class="row home-row mt-5">
+        <div class="col p-0 my-5">
             <img class="front-page-img" src="images/photodune-2034238-italian-cooking-l.jpg" alt="in"
                 style="width:100%;">
-            <button id="btn-in" type="button" class="btn btn-danger" style="width: 12rem; height:5rem;">In</button>
+            <button id="btn-in" type="button" class="btn btn-danger" style="width: 12rem; height:5rem;">EatIn</button>
         </div>
         <div class="col p-0 my-5 mx-0">
             <img class="front-page-img" src="images/Dining Out 2_0.jpg" alt="out" style="width:100%;">
             <button id="btn-out" type="button" class="btn btn-danger"
-                style="width: 12rem; height:5rem;">Out</button>
+                style="width: 12rem; height:5rem;">EatOut</button>
         </div>
     </div>
 
+
+    <!-- EAT IN FORM -->
+    <div id="stay-in" class="row mt-4">
+        <div class="col-6 border border-rounded border-danger">
+            <form>
+                <div class="form-group">
+                <label for="main-ingredient">Main Ingredient</label>
+                <input type="text" class="form-control" id="main-ingredient" placeholder="ie. Steak">
+                </div>
+                <div class="form-group">
+                <label for="meal-type">Meal:</label>
+                <select id="meal-type-select" class="form-control">
+                        <option data-value=""></option>
+                        <option data-value="Breakfast">Breakfast</option>
+                        <option data-value="Brunch">Brunch</option>
+                        <option data-value="Lunch">Lunch</option>
+                        <option data-value="Dinner">Dinner</option>
+                        <option data-value="Snack">Snack</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="dietary-restriction">Dietary Restriction:</label>
+                    <select id="dietary-select" class="form-control">
+                            <option data-value="alcohol-free">Alcohol-free</option>
+                            <option data-value="celery-free">Celery-free</option>
+                            <option data-value="dairy-free">Dairy-free</option>
+                            <option data-value="gluten-free">Gluten-free</option>
+                            <option data-value="keto-friendly">Keto</option>
+                            <option data-value="shellfish-free">Shellfish</option>
+                            <option data-value="paleo">Paleo</option>
+                            <option data-value="peanut-free">Peanuts</option>
+                            <option data-value="vegan">Vegan</option>
+                            <option data-value="vegetarian">Vegetarian</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cuisine-type">Cuisine Type</label>
+                    <select id="cuisine-select" class="form-control">
+                            <option data-value="American">American</option>
+                            <option data-value="Chinese">Chinese</option>
+                            <option data-value="French">French</option>
+                            <option data-value="Indian">Indian</option>
+                            <option data-value="Italian">Italian</option>
+                            <option data-value="Japanese">Japanese</option>
+                            <option data-value="Mediterranean">Mediterranean</option>
+                            <option data-value="Mexican">Mexican</option>
+                            <option data-value="Middle Eastern">Middle Eastern</option>
+                    </select>
+                </div>
+                <button id="search-btn" class="btn btn-outline-success mx-3 my-2 my-sm-0">Search</button>
+            </form>
+        </div>
+        <div class="col-6 border border-rounded border-danger">
+            favorites to go here later
+        </div>
+    </div>
+    <div id="recipe-cards" class="row my-4 ">
+    </div>
+
     <!-- Footer -->
-    <footer class="page-footer font-small fixed-bottom mt-5 ">
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2023 Copyright by EatIn//EatOut</div>
+    <footer class="page-footer font-small  mt-5 ">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2023 Copyright by EatIn//EatOut</div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="app.js"></script>
+    <script src="Stay-in.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
