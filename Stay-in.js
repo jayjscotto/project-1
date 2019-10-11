@@ -1,8 +1,10 @@
  //click listener for the search button
  $("#search-btn").on("click", function() {
     event.preventDefault();
+    $("#recipe-cards").empty();
     //value of search input
     let mainIngridient = $("#search-value").val();
+    
 
     //Edamam API info
     const APIkey = "a8f82bad4a3cd7ae69e3468a1f8e22d2";
@@ -63,9 +65,6 @@
             }
 
             listDiv.append(itemList);
-            ///////// Everything else here works //////////////
-
-            //adds list to list div
 
             //adds link to recipe and ingridents to the card
             card.append(link, listDiv);
@@ -75,10 +74,6 @@
             //adds the row to the body
             col.append(card);
             $("#recipe-cards").append(col);
-
-            //because this is a for loop
-            //a row, and a card will be created every time the loop iterates...
-            //essentially: each recipe gets it's own card and row.. (for now)
         }
         //end of for loop
     });

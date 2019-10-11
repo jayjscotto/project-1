@@ -21,14 +21,17 @@
                 </a>
 
                 <form class="form-inline ml-5">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <input id="quick-search-val" class="form-control mr-sm-2" type="search" placeholder="Quick-Search" aria-label="Search">
+                        <select id="quick-search" class="form-control mr-2">
+                            <option>Stay In</option>
+                            <option>Go Out</option>
+                        </select>
+                        <button id="search-both" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                     <button class="navbar-toggler" data-toggle="collapse" data-target="#Navbar">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </form>
-
                 <div class="collapse navbar-collapse " id="Navbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -41,6 +44,7 @@
             </div>
         </nav>
     </div>
+
 
     <!-- HOME BUTTONS -->
     <div class="row home-row mt-5">

@@ -54,11 +54,6 @@ $(document).ready(function() {
     
 
 
-
-
-
-
-
     //  var valueDropdown = $('#select_id').val();
     //  var valueSearchBox = $('#getText').val()
     //  var searchCity = "&q=" + valueSearchBox;
