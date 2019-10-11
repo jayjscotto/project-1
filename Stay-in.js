@@ -1,8 +1,12 @@
- //click listener for the search button
- $("#search-btn").on("click", function() {
-    event.preventDefault();
-    //value of search input
-    let mainIngridient = $("#search-value").val();
+$(document).ready(function() {
+
+//quick search function
+function recipeSearch(searchValue) {
+    
+    //value of search input paramater
+    let mainIngridient = searchValue;
+
+    //add if statements to determine further specific search parameters
 
     //Edamam API info
     const APIkey = "a8f82bad4a3cd7ae69e3468a1f8e22d2";
@@ -83,4 +87,39 @@
         //end of for loop
     });
     //end of ajax call && promise
-}) //end of click listener
+    //end of click listener
+
+
+    //click listener for the full search button
+    $("#search-btn-recipe").on("click", function(e){
+        //prevent default
+        e.preventDefault();
+        e.stopPropagation();
+        //run the search function
+        recipeSearch($("#main-ingredient").val());
+    });
+
+    $("#search-both").on("click", function(e) {
+        //prevent default
+        e.preventDefault();
+        e.stopPropagation();
+        //console log to check the value that determines which ajax call we are using
+        console.log($("#quick-search").val());
+
+        //conditional statement that chooses the ajax call
+        if ($("#quick-search").val() === "Stay In") {
+            //use ajax call from stay-in.js
+            recipeSearch($("#quick-search-val").val());
+            //show the recipe search results area
+            $("#stay-in").show();
+        } else if ($("#quick-search").val() === "Go Out") {
+            //use ajax call from outlog.js with select() function and search value parameter
+            select($("#quick-search-val").val());
+            //TODO: show the restaurant search results area
+        } else {
+            //modal to explain quick search?
+        }
+    })
+    
+    //export { recipeSearch }
+}});

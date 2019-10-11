@@ -15,14 +15,16 @@
 <body>
     <div id="nav" class="container">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-            <div class="container">
                 <a class="navbar-brand" href="#">
                     <h3>EatIn//EatOut</h3>
                 </a>
-
                 <form class="form-inline ml-5">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <input id="quick-search-val"class="form-control mr-sm-2" type="search" placeholder="Quick-Search" aria-label="Search">
+                        <select id="quick-search" class="form-control mr-2">
+                            <option data-value="stay">Stay In</option>
+                            <option data-value="go">Go Out</option>
+                        </select>
+                        <button id="search-both" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                     <button class="navbar-toggler" data-toggle="collapse" data-target="#Navbar">
                         <span class="navbar-toggler-icon"></span>
@@ -105,7 +107,7 @@
                             <option data-value="Middle Eastern">Middle Eastern</option>
                     </select>
                 </div>
-                <button id="search-btn" class="btn btn-outline-success mx-3 my-2 my-sm-0">Search</button>
+                <button id="search-btn-recipe" class="btn btn-outline-success mx-3 my-2 my-sm-0">Search</button>
             </form>
         </div>
         <div class="col-6 border border-rounded border-danger">
@@ -115,14 +117,30 @@
     <div id="recipe-cards" class="row my-4 ">
     </div>
 
+    <!-- RESTAURANTS -->
+    <div id="go-out" class="row mt-4">
+            <div class="col-6 border border-rounded border-danger">
+                <form>
+                    <!-- ADD FORM HERE -->
+                    <button id="search-btn-restaurant" class="btn btn-outline-success mx-3 my-2 my-sm-0">Search</button>
+                </form>
+            </div>
+            <div class="col-6 border border-rounded border-danger">
+                favorites to go here later
+            </div>
+    </div>
+    <div id="restaurant-cards" class="row my-4 ">
+
+    </div>
+    
     <!-- Footer -->
     <footer class="page-footer font-small  mt-5 ">
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2023 Copyright by EatIn//EatOut</div>
     </footer>
 
-    <script src="app.js"></script>
     <script src="Stay-in.js"></script>
+    <script src="app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>

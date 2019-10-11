@@ -1,17 +1,3 @@
-//comment
-
-
-console.log("hello World!!!")
-
-//counts from one up to ten
-//function count() {
- //   for (let i = 0; i < 10; i ++) {
- //       console.log(i);
-//}
-
-//call count function
-//count();
-
 $(document).ready(function() {
 
     $("#searchBtn").on("click", function(e) {
@@ -20,10 +6,10 @@ $(document).ready(function() {
     });
     //--------------------------------------------------SEARCH BY CITY-----------------------------------------
    
-    function select() {
+    function select(searchValue) {
     
     //var city = ""
-    var searchBox = $('#getText').val();
+    var searchBox = searchValue;
     console.log(searchBox);
     //var searchBox = $('#getText').val();
     var queryURL = "https://developers.zomato.com/api/v2.1/locations?query=" + searchBox 
