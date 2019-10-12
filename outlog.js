@@ -7,10 +7,9 @@ $(document).ready(function() {
     //--------------------------------------------------SEARCH BY CITY-----------------------------------------
    
     function select(value) {
+    
+        console.log(value);
         
-        searchValue = $("#restaurant-location").val(); 
-        console.log(searchValue)
-        var queryURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchValue
         
         $.ajax({
             url: queryURL,

@@ -107,9 +107,39 @@ $(document).ready(function() {
                     
         } else if ($("#quick-search").val() === "Go Out") {
                     //use ajax call from outlog.js with select() function and search value parameter
-                    select($("#quick-search-val").val());
+                    console.log($("#quick-search-val").val())
+                    let searchVal = $("#quick-search-val").val();
                     //TODO: show the restaurant search results area
-                } else {
+                    var queryURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchVal;
+
+                    $.ajax({
+                        url: queryURL,
+                        method: "GET",
+                        headers: {
+                            "user-key": "85b611ff124684e64a5eee0c57b6192c"
+                        }
+                    }).then(function(data) {
+                        console.log(data)
+                        //get coordinates of first suggested city
+                        var cityId = data.location_suggestions[0].id;
+            
+            
+                        //USE SOMETHING OTHER THAN COLLECTIONS
+            
+                        //second query url
+                        var queryTwoURL = "https://developers.zomato.com/api/v2.1/collections?city_id=" + cityId;
+            
+                        $.ajax({
+                            url: queryTwoURL,
+                            method: "GET",
+                            headers: {
+                                "user-key": "85b611ff124684e64a5eee0c57b6192c"
+                            }
+                        }).then(function(response) {
+                            console.log(response);
+                        })
+                })
+        } else {
                     //modal to explain quick search?
                 }
     });
