@@ -21,6 +21,7 @@ h1::after
 }
 .profile-pic
 {
+  padding: 5px;
   margin-top: 25px;
 }
 .profile-pic .img-box
