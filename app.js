@@ -127,7 +127,7 @@ $(document).ready(function() {
                         //USE SOMETHING OTHER THAN COLLECTIONS
             
                         //second query url
-                        var queryTwoURL = "https://developers.zomato.com/api/v2.1/collections?city_id=" + cityId;
+                        var queryTwoURL = `https://developers.zomato.com/api/v2.1/location_details?entity_id=${cityId}&entity_type=city`;
             
                         $.ajax({
                             url: queryTwoURL,
@@ -136,7 +136,36 @@ $(document).ready(function() {
                                 "user-key": "85b611ff124684e64a5eee0c57b6192c"
                             }
                         }).then(function(response) {
+
                             console.log(response);
+
+                            //get best rated restaurants list
+                            let resultsArr = response.best_rated_restaurants;
+
+                            //for loop to work with top 10 restaurants
+                            for (let i = 0; i < resultsArr.length; i++) {
+                                //new col for each card
+                                let col = $("<div>").attr("class", "col-6 mx-auto text-align-center");
+
+                                //new card for each restaurant
+                                let card = $("<div>").attr("class", "card");
+
+                                //
+
+                            }
+                            //for loop
+                                //limited to 10 restaurants
+
+                                //bootstrap panel
+                                    //image
+                                    //restaurant name
+                                    //get cuisine type
+                                    //get cost for 2 (or price by $$$$)
+                                    //link to menu
+                        
+                            
+                                         
+                        
                         })
                 })
         } else {
