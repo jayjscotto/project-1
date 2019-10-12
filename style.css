@@ -1,5 +1,10 @@
-html {
+/* html {
   overflow:   scroll;
+
+} */
+
+* {
+  font-family: Raleway;
 }
 
 ::-webkit-scrollbar {
@@ -19,48 +24,37 @@ html {
   top: 50%;
   color: white;
   cursor: pointer;
-  background-color: rgba(255,102,102,.9);
-  background-color: rgb(129, 226, 17);
+  
   font-size: 2em;
   font-weight: 600;
 } 
 
 
 #btn-in {
-  
+  background-color: rgba(155, 221, 79, .9);
   /* left: 0; */
   border-radius: 5px 0 0 5px;
   border: 2px solid;
-  /* border-color: rgba(255,255,255,0.75) */
+  border-color: rgba(255,255,255,0.75)
 }
 
 #btn-out {
+  background-color: rgba(155, 221, 79, .9);
   /* right: 0; */
   border-radius: 0 5px 5px 0;
   border: 2px solid;
   border-color: rgba(255,255,255,0.75)
 }
 
-/* .btn:hover {
+.btn:hover {
   opacity: 0.85;
-}  */
+}  
 
-.home-row {
-  margin-left: 0!important;
-  margin-right: 0!important;  
+
+body {
+  background-color: #c2bdbd;
 }
 
-#stay-in {
-  margin: 0!important;
-  /* background-image: linear-gradient(to  left,#c73866,#fd8f52); */
-  background-image: linear-gradient(to  left,#fe612c,#ffa12c
-  );
-}
-#recipe-cards{
-  
-    background-image: linear-gradient(to top right, red, yellow);
-
-}
 
 .row {
   margin-left: 0!important;
