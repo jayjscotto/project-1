@@ -2,6 +2,7 @@
  $("#search-btn").on("click", function() {
     event.preventDefault();
     //value of search input
+    
     let mainIngridient = $("#search-value").val();
 
     //Edamam API info

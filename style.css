@@ -1,3 +1,16 @@
+/* html {
+  overflow:   scroll;
+
+} */
+
+* {
+  font-family: Raleway;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
 
 .page-footer{
     background-color: #2c3e50!important;
@@ -5,47 +18,46 @@
     font-size: 80%;
  }
 
- Style the button and place it in the middle of the container/image
+ /* Style the button and place it in the middle of the container/image */
 .home-img {
   position: relative;
   top: 50%;
   color: white;
   cursor: pointer;
-  background-color: rgba(255,102,102,.9);
-  background-color: rgb(129, 226, 17);
+  
   font-size: 2em;
   font-weight: 600;
 } 
 
 
 #btn-in {
-  right: 0;
+  background-color: rgba(155, 221, 79, .9);
+  /* left: 0; */
   border-radius: 5px 0 0 5px;
   border: 2px solid;
   border-color: rgba(255,255,255,0.75)
 }
 
 #btn-out {
-  left: 0;
+  background-color: rgba(155, 221, 79, .9);
+  /* right: 0; */
   border-radius: 0 5px 5px 0;
   border: 2px solid;
   border-color: rgba(255,255,255,0.75)
 }
 
-/* .btn:hover {
+.btn:hover {
   opacity: 0.85;
-}  */
+}  
 
-.home-row {
-  margin-left: 0!important;
-  margin-right: 0!important;  
+
+body {
+  background-color: #c2bdbd;
 }
 
-#stay-in {
-  margin: 0!important;
-}
 
 .row {
   margin-left: 0!important;
   margin-right: 0!important;
 }
+ 
