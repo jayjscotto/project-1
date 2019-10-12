@@ -25,7 +25,7 @@ $("#search-btn-recipe").on("click", function() {
         //for loop to append each result from the list	
         for (let i = 0; i < resultsArr.length; i++) {	
 
-            //sets a row for each card	
+            //sets a col for each card	
             let col = $("<div>").attr("class", "col-4 mx-auto text-align-center");	
 
             //hyperlink for each card image and title	
