@@ -1,5 +1,5 @@
  //click listener for the search button
- $("#search-btn").on("click", function() {
+ $("#search-btn-recipe").on("click", function() {
     event.preventDefault();
     $("#recipe-cards").empty();
     //value of search input

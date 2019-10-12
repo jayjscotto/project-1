@@ -4,7 +4,15 @@ $(document).ready(function() {
 
     $("#btn-in").on("click", function(e){
         e.preventDefault();
+        $("#go-out").hide();
         $("#stay-in").show();
+    })
+
+    $("#btn-out").on("click", function(e){
+        e.preventDefault();
+        $("#stay-in").hide();
+        $("#go-out").show();
+        console.log('hey')
     })
 
     ///////QUICK SEARCH:

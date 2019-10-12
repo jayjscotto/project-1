@@ -1,54 +1,43 @@
-//comment
-
-
-console.log("hello World!!!")
-
-//counts from one up to ten
-//function count() {
- //   for (let i = 0; i < 10; i ++) {
- //       console.log(i);
-//}
-
-//call count function
-//count();
-
 $(document).ready(function() {
 
-    $("#searchBtn").on("click", function(e) {
+    $("#search-btn-restaurant").on("click", function(e) {
         e.preventDefault();
         select();
     });
     //--------------------------------------------------SEARCH BY CITY-----------------------------------------
    
     function select() {
-    
-    //var city = ""
-    var searchBox = $('#getText').val();
-    console.log(searchBox);
-    //var searchBox = $('#getText').val();
-    var queryURL = "https://developers.zomato.com/api/v2.1/locations?query=" + searchBox 
-    //var queryURL = "https://developers.zomato.com/api/v2.1/cities?q=" + city
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-        headers: {
-            "user-key": "85b611ff124684e64a5eee0c57b6192c"
-        }
-    }).then(function(data) {
-        console.log(data)
-        var lat = data.location_suggestions[0].latitude
-        var lon = data.location_suggestions[0].longitude
-        var queryTwoURL = "https://developers.zomato.com/api/v2.1/search?count=10&lat=" + lat + "&lon=" + lon
-
+        
+        let city = $("#restaurant-location").val();
+        console.log(city)
+        var queryURL = "https://developers.zomato.com/api/v2.1/cities?q=" + city
+        
         $.ajax({
-            url: queryTwoURL,
+            url: queryURL,
             method: "GET",
             headers: {
                 "user-key": "85b611ff124684e64a5eee0c57b6192c"
             }
-        }).then(function(response) {
-            console.log(response)
-        })
+        }).then(function(data) {
+            console.log(data)
+            //get coordinates of first suggested city
+            var cityId = data.location_suggestions[0].id;
+
+
+            //USE SOMETHING OTHER THAN COLLECTIONS
+
+            //second query url
+            var queryTwoURL = "https://developers.zomato.com/api/v2.1/collections?city_id=" + cityId;
+
+            $.ajax({
+                url: queryTwoURL,
+                method: "GET",
+                headers: {
+                    "user-key": "85b611ff124684e64a5eee0c57b6192c"
+                }
+            }).then(function(response) {
+                console.log(response);
+            })
     })
 
     
@@ -81,7 +70,6 @@ $(document).ready(function() {
     //     var userRating = x.restaurant.user_rating;
     //     html += "<div class='data img-rounded'>";
     //     html += "<div class='rating'>";
-   
     //     html += "<span title='" + userRating.rating_text + "'><p style='color:white;background-color:#" + userRating.rating_color + ";border-radius:4px;border:none;padding:2px 10px 2px 10px;text-align: center;text-decoration:none;display:inline-block;font-size:16px;float:right;'><strong>" + userRating.aggregate_rating + "</strong></p></span><br>";
     //     html += "  <strong class='text-info'>" + userRating.votes + " votes</strong>";
     //     html += "</div>";
@@ -98,9 +86,6 @@ $(document).ready(function() {
     //  });
    
     }
-    //--------------------------------------------------------------------------------------------------------
-    // $("#select_id").change(function() {
-    //  select();
-    // });
-    select();
+    
+ 
    });
