@@ -6,11 +6,11 @@ $(document).ready(function() {
     });
     //--------------------------------------------------SEARCH BY CITY-----------------------------------------
    
-    function select() {
+    function select(value) {
         
-        let city = $("#restaurant-location").val();
-        console.log(city)
-        var queryURL = "https://developers.zomato.com/api/v2.1/cities?q=" + city
+        searchValue = $("#restaurant-location").val(); 
+        console.log(searchValue)
+        var queryURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchValue
         
         $.ajax({
             url: queryURL,
