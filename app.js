@@ -127,7 +127,7 @@ $(document).ready(function() {
                         //USE SOMETHING OTHER THAN COLLECTIONS
             
                         //second query url
-                        var queryTwoURL = "https://developers.zomato.com/api/v2.1/collections?city_id=" + cityId;
+                        var queryTwoURL = `https://developers.zomato.com/api/v2.1/location_details?entity_id=${cityId}&entity_type=city`;
             
                         $.ajax({
                             url: queryTwoURL,
