@@ -3,6 +3,7 @@
     event.preventDefault();
     $("#recipe-cards").empty();
     //value of search input
+    
     let mainIngridient = $("#search-value").val();
     
 
