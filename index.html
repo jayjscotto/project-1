@@ -22,14 +22,17 @@
                 </a>
 
                 <form class="form-inline ml-5">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <input id="quick-search-val" class="form-control mr-sm-2" type="search" placeholder="Quick-Search" aria-label="Search">
+                        <select id="quick-search" class="form-control mr-2">
+                            <option>Stay In</option>
+                            <option>Go Out</option>
+                        </select>
+                        <button id="search-both" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                     <button class="navbar-toggler" data-toggle="collapse" data-target="#Navbar">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </form>
-
                 <div class="collapse navbar-collapse " id="Navbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -42,6 +45,7 @@
             </div>
         </nav>
     </div>
+
 
     <!-- HOME BUTTONS -->
     <div class="row home-row mt-5">
@@ -117,14 +121,65 @@
     <div id="recipe-cards" class="row my-4 ">
     </div>
 
+    <!--EAT OUT FORM-->
+    <div id="go-out" class="row mt-4">
+        <div class="col-6 border border-rounded border-danger">
+            <form>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" class="form-control" id="restaurant-location" placeholder="ie. New York City">
+                </div>
+                <!--
+                <div class="form-group">
+                    <label for="dietary-restriction">Dietary Restriction:</label>
+                    <select id="dietary-select" class="form-control">
+                            <option data-value="alcohol-free">Alcohol-free</option>
+                            <option data-value="celery-free">Celery-free</option>
+                            <option data-value="dairy-free">Dairy-free</option>
+                            <option data-value="gluten-free">Gluten-free</option>
+                            <option data-value="keto-friendly">Keto</option>
+                            <option data-value="shellfish-free">Shellfish</option>
+                            <option data-value="paleo">Paleo</option>
+                            <option data-value="peanut-free">Peanuts</option>
+                            <option data-value="vegan">Vegan</option>
+                            <option data-value="vegetarian">Vegetarian</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cuisine-type">Cuisine Type</label>
+                    <select id="cuisine-select" class="form-control">
+                            <option data-value="American">American</option>
+                            <option data-value="Chinese">Chinese</option>
+                            <option data-value="French">French</option>
+                            <option data-value="Indian">Indian</option>
+                            <option data-value="Italian">Italian</option>
+                            <option data-value="Japanese">Japanese</option>
+                            <option data-value="Mediterranean">Mediterranean</option>
+                            <option data-value="Mexican">Mexican</option>
+                            <option data-value="Middle Eastern">Middle Eastern</option>
+                    </select>
+                </div>-->
+                <button id="search-btn-restaurant" class="btn btn-outline-success mx-3 my-2 my-sm-0">Search</button>
+            </form>
+        </div>
+        <div class="col-6 border border-rounded border-danger">
+            favorites to go here later
+        </div>
+    </div>
+    <div id="restaurant-cards" class="row my-4 ">
+    </div>
+
+
     <!-- Footer -->
     <footer class="page-footer font-small  mt-5 ">
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2023 Copyright by EatIn//EatOut</div>
     </footer>
 
-    <script src="app.js"></script>
+    <script src="outlog.js"></script>
     <script src="Stay-in.js"></script>
+    <script src="app.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
