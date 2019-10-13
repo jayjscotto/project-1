@@ -80,3 +80,48 @@ auth.onAuthStateChanged(function(user) {
 db.collection("recipe-favorites").get().then(function(snapshot) {
     console.log(snapshot.docs)
 })
+
+db.collection("restaurant-favorites").get().then(function(snapshot) {
+    restaurantSetUp(snapshot.docs);
+})
+
+//set up restaurant favorites
+function restaurantSetUp(data) {
+    data.forEach(doc => {
+        //search favorite obj is each object from restaurant collection
+        const searchFav = doc.data();
+
+        //button for each favorite
+        let button = $("<button>");
+        button.text(searchFav.city);
+        button.attr("class", "btn btn-outline-success text-center font-weight-bold mx-4 my-4 text-dark");
+        
+        //on click for ajax call
+        button.on("click", function() {
+            restaurantSearch(searchFav.city);
+        })
+
+        //add button to favorites section
+        $("#restaurant-favorites").append(button)
+
+        console.log(searchFav.city);
+     })
+}
+
+function recipeSetUp(data) {
+    data.forEach(doc => {
+        //search favorite obj is each object from restaurant collection
+        const searchFav = doc.data();
+
+        //button for each favorite
+        let button = $("<button>");
+        button.text(searchFav.city);
+        button.attr("class", "btn btn-outline-success text-center font-weight-bold mx-4 my-4 text-dark");
+        //on click function for ajax call
+        button.on("click", function() {
+            recipeSearch(searchFav.city);
+        })
+
+        $("#restaurant-favorites").append(button);
+     })
+}

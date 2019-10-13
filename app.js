@@ -131,83 +131,86 @@ $(document).ready(function() {
             $("#restaurant-cards").show();
             $("#go-out").show();
 
-            $("#restaurant-cards").append(col);
+            
+            restaurantSearch($("#quick-search-val").val());
 
-            //use ajax call from outlog.js with select() function and search value parameter
-            console.log($("#quick-search-val").val())
-            let searchVal = $("#quick-search-val").val();
-            //TODO: show the restaurant search results area
-            var queryURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchVal;
+            // $("#restaurant-cards").append(col);
 
-            $.ajax({
-                url: queryURL,
-                method: "GET",
-                headers: {
-                    "user-key": "85b611ff124684e64a5eee0c57b6192c"
-                }
-            }).then(function(data) {
-                console.log(data)
-                //get coordinates of first suggested city
-                var cityId = data.location_suggestions[0].id;
+            // //use ajax call from outlog.js with select() function and search value parameter
+            // console.log($("#quick-search-val").val())
+            // let searchVal = 
+            // //TODO: show the restaurant search results area
+            // var queryURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchVal;
 
-                //second query url
-                var queryTwoURL = `https://developers.zomato.com/api/v2.1/location_details?entity_id=${cityId}&entity_type=city`;
+            // $.ajax({
+            //     url: queryURL,
+            //     method: "GET",
+            //     headers: {
+            //         "user-key": "85b611ff124684e64a5eee0c57b6192c"
+            //     }
+            // }).then(function(data) {
+            //     console.log(data)
+            //     //get coordinates of first suggested city
+            //     var cityId = data.location_suggestions[0].id;
+
+            //     //second query url
+            //     var queryTwoURL = `https://developers.zomato.com/api/v2.1/location_details?entity_id=${cityId}&entity_type=city`;
     
-                $.ajax({
-                    url: queryTwoURL,
-                    method: "GET",
-                    headers: {
-                        "user-key": "85b611ff124684e64a5eee0c57b6192c"
-                    }
-                }).then(function(response) {
-                    $("#loading-col").detach();
-                    console.log(response);
+            //     $.ajax({
+            //         url: queryTwoURL,
+            //         method: "GET",
+            //         headers: {
+            //             "user-key": "85b611ff124684e64a5eee0c57b6192c"
+            //         }
+            //     }).then(function(response) {
+            //         $("#loading-col").detach();
+            //         console.log(response);
 
-                    //get best rated restaurants list
-                    let resultsArr = response.best_rated_restaurant;
+            //         //get best rated restaurants list
+            //         let resultsArr = response.best_rated_restaurant;
 
                     
-                    console.log(resultsArr)
-                    //for loop to work with top 10 restaurants
-                    for (let i = 0; i < resultsArr.length; i++) {
-                        //new col for each card
+            //         console.log(resultsArr)
+            //         //for loop to work with top 10 restaurants
+            //         for (let i = 0; i < resultsArr.length; i++) {
+            //             //new col for each card
 
-                        console.log(resultsArr[i])
-                        let col = $("<div>").attr("class", "col-5 mx-auto text-align-center");
+            //             console.log(resultsArr[i])
+            //             let col = $("<div>").attr("class", "col-5 mx-auto text-align-center");
 
-                        //new card for each restaurant
-                        let card = $("<div>").attr("class", "card mx-auto my-4");
+            //             //new card for each restaurant
+            //             let card = $("<div>").attr("class", "card mx-auto my-4");
 
-                        //restaurant img
-                        let restaurantImage = $("<img>").attr("src", resultsArr[i].restaurant.photos[0].photo.url);	
-                        restaurantImage.attr("height", "150");	
-                        restaurantImage.attr("width", "250");	
-                        restaurantImage.attr("class", "mx-auto");
+            //             //restaurant img
+            //             let restaurantImage = $("<img>").attr("src", resultsArr[i].restaurant.photos[0].photo.url);	
+            //             restaurantImage.attr("height", "150");	
+            //             restaurantImage.attr("width", "250");	
+            //             restaurantImage.attr("class", "mx-auto");
 
-                        //restaurant name
-                        let link = $("<a>").attr("href", resultsArr[i].restaurant.menu_url);
-                        let restaurantTitle = $("<h5>").attr("class", "card-title mx-auto text-align-center");	
-                        restaurantTitle.text(resultsArr[i].restaurant.name);
-                        link.append(restaurantTitle);
+            //             //restaurant name
+            //             let link = $("<a>").attr("href", resultsArr[i].restaurant.menu_url);
+            //             let restaurantTitle = $("<h5>").attr("class", "card-title mx-auto text-align-center");	
+            //             restaurantTitle.text(resultsArr[i].restaurant.name);
+            //             link.append(restaurantTitle);
                         
-                        //cuisine types
-                        let cuisines = $("<p>").text(resultsArr[i].restaurant.cuisines);
+            //             //cuisine types
+            //             let cuisines = $("<p>").text(resultsArr[i].restaurant.cuisines);
 
                         
 
-                        //avg cost for two
-                        let avgCost = $("<p>").text(`Average cost for two: ${resultsArr[i].restaurant.average_cost_for_two}`);
+            //             //avg cost for two
+            //             let avgCost = $("<p>").text(`Average cost for two: ${resultsArr[i].restaurant.average_cost_for_two}`);
 
-                        //address
-                        let address = $("<p>").text(resultsArr[i].restaurant.location.address);
+            //             //address
+            //             let address = $("<p>").text(resultsArr[i].restaurant.location.address);
 
-                        card.append(restaurantImage, link, cuisines, avgCost, address);
-                        col.append(card);
-                        $("#restaurant-cards").append(col);
-                    }
+            //             card.append(restaurantImage, link, cuisines, avgCost, address);
+            //             col.append(card);
+            //             $("#restaurant-cards").append(col);
+            //         }
 
-                })
-                })
+            //     })
+            //     })
         } else {
                     console.log('quick search false')
                 }
@@ -227,6 +230,9 @@ $(document).ready(function() {
           } 
         });
       }
+
+   
+
 })
 
 
