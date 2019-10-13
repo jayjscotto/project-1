@@ -7,6 +7,8 @@ $("#search-btn-restaurant").on("click", function(e) {
 function restaurantSearch(searchVal) {
     $("#restaurant-cards").empty();
     $("#recipe-cards").empty();
+    $("#restaurant-results").empty();
+    $("#recipe-results").empty();
 
     var queryURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchVal;
 
@@ -15,7 +17,7 @@ function restaurantSearch(searchVal) {
     loadingGif.attr("id", "loading-gif");
 
     //set col where loading gif will appear
-    let col = $("<div>").attr("class", "col text-center")
+    let col = $("<div>").attr("class", "col mx-auto text-center")
     col.attr("id", "loading-col");
     col.append(loadingGif);
 
@@ -28,7 +30,7 @@ function restaurantSearch(searchVal) {
             "user-key": "85b611ff124684e64a5eee0c57b6192c"
         }
     }).then(function(data) {
-        console.log(data)
+        //console.log(data)
         //get coordinates of first suggested city
         var cityId = data.location_suggestions[0].id;
 
@@ -54,6 +56,11 @@ function restaurantSearch(searchVal) {
                 favButton.text("Add to Favorites");
                 favButton.attr("data-name", searchVal);
                 favButton.attr("id", "add-restaurant-favorite");
+                //listener to add to favorites
+                favButton.on("click", function(e){
+                    e.preventDefault();
+                    addRestaurantFavorite(searchVal);
+                })
 
                 let results = $("<h3>").attr("class", "text-center mx-auto").text("Results");
                 
@@ -63,7 +70,7 @@ function restaurantSearch(searchVal) {
             //for loop to work with top 10 restaurants
             for (let i = 0; i < resultsArr.length; i++) {
                 //new col for each card
-                console.log(resultsArr[i])
+                //console.log(resultsArr[i])
                 let col = $("<div>").attr("class", "col-5 mx-auto text-align-center");
                 //new card for each restaurant
                 let card = $("<div>").attr("class", "card mx-auto my-4");

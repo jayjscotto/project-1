@@ -72,11 +72,13 @@ loginForm.on("submit", function(e) {
 auth.onAuthStateChanged(function(user) {
     if (user) {
         console.log(`logged in`)
-        db.collection("recipe-favorites").get().then(function(snapshot) {
+        db.collection("recipe-favorites").onSnapshot(function(snapshot) {
+            $("#recipe-favorites").empty();
             recipeSetUp(snapshot.docs);
         })
         
-        db.collection("restaurant-favorites").get().then(function(snapshot) {
+        db.collection("restaurant-favorites").onSnapshot(function(snapshot) {
+            $("#restaurant-favorites").empty();
             restaurantSetUp(snapshot.docs);
         })
 
@@ -112,6 +114,7 @@ function restaurantSetUp(data) {
     }
 }
 
+//set up recipe favorites
 function recipeSetUp(data) {
     if(data.length) {
         $(".logInReq").hide();
@@ -134,19 +137,21 @@ function recipeSetUp(data) {
     }
 }
 
-$("#add-recipe-favorite").on("click", function(e){
-    e.preventDefault();
-    if (user) {
-        const newFav = $("#add-recipe-favorite").attr("data-name");
-        db.collectiton("recipe-favorites").add({name: newFav});
-    }
 
-});
+//add to recipe favorites function
+function addRecipeFavorite(fav) {
+    db.collection("recipe-favorites").add({name: fav}).then(function(){
+        console.log(`${fav} added to recipes`);
+    }).catch(function(err){
+        console.log(err.message);
+    });
+}
 
-$("#add-restaurant-favorite").on("click", function(e){
-    e.preventDefault();
-    if (user) {
-        const newFav = $("#add-restaurant-favorite").attr("data-name");
-        db.collection("restaurant-favorites").add({city: newFav});
-    }
-})
+//add to restaurant favorites function
+function addRestaurantFavorite(fav) {
+    db.collection("restaurant-favorites").add({city: fav}).then(function(){
+        console.log(`${fav} added to restaurants`);
+    }).catch(function(err){
+        console.log(err.message);
+    });
+};

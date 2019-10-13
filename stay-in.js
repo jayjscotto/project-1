@@ -2,6 +2,8 @@
 $("#search-btn-recipe").on("click", function() {	
     event.preventDefault();	
     $("#recipe-cards").empty();	
+    $("#restaurant-results").empty();
+    $("#recipe-results").empty();
 
     recipeSearch($("#main-ingredient").val());
 })
@@ -22,15 +24,19 @@ $("#search-btn-recipe").on("click", function() {
         col.attr("id", "loading-col");
         col.append(loadingGif);
 
-        $("#restaurant-cards").append(col);
+        $("#recipe-cards").append(col);
 
         //appending results and add to favorites button
-        let firstCol = $("<div>").attr("class", "col text-center");
+        let firstCol = $("<div>").attr("class", "col text-center mx-auto");
         let favButton = $("<button>").attr("class", "btn btn-outline-success text-center mx-auto");
         favButton.text("Add to Favorites");
         favButton.attr("data-name", searchVal);
         favButton.attr("id", "add-recipe-favorite");
-        
+        //listener to add to favorites
+        favButton.on("click", function(e){
+            e.preventDefault();
+            addRecipeFavorite(searchVal);
+        })
 
         let results = $("<h3>").attr("class", "text-center mx-auto").text("Results");
         
@@ -43,7 +49,7 @@ $("#search-btn-recipe").on("click", function() {
         const queryURL = `https://api.edamam.com/search?q=${mainIngridient}&app_id=${appID}&app_key=${APIkey}`	
 
         // remaining part of query &mealType=${mealType}&cuisineType=${cuisineType}&health=${health} //
-        console.log(queryURL);
+        
 
         //ajax call to get information from Edamam	
         $.ajax({	
@@ -51,7 +57,7 @@ $("#search-btn-recipe").on("click", function() {
             method: "GET",	
             contentType: "application/json"	
         }).then(function(response) {	
-            console.log(response)	
+            //console.log(response)	
 
             $("#loading-col").detach();
             //variable for the results array	
@@ -88,16 +94,13 @@ $("#search-btn-recipe").on("click", function() {
                 let itemList = $("<ul>");	
 
                 let ingredientsArr = resultsArr[i].recipe.ingredients;	
-                console.log(resultsArr[i].recipe.ingredients);	
 
                 //for loop to add ingridients list to each card	
                 for (let j = 0; j < ingredientsArr.length; j++) {	
                     let newLi = $("<li>");	
                     let ingredient = ingredientsArr[j].text;	
-                    console.log(ingredient);	
                     newLi.text(ingredient);	
                     itemList.append(newLi);	
-                    console.log(newLi);	
                 }	
 
                 listDiv.append(itemList);	
