@@ -1,65 +1,9 @@
-
-.page-footer{
-    /* background-color:#1a252f; */
-    background-color: #2c3e50!important;
-
-    color: #fff;
-    font-size: 80%;
- }
- /* Three image containers (use 25% for four, and 50% for two, etc) */
-.column {
-    margin-top: 100px;
-    float: left;
-    width: 50%;
-    /* padding: 5px; */
-  }
-  
-  /* Clear floats after image containers */
-  .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
- 
-  @media screen and (max-width: 500px) {
-    .column {
-      width: 100%;
-    }
-  }
-
-  input[type=text], select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-  }
-  
-  input[type=submit] {
-    background-color: #2c3e50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  input[type=submit]:hover {
-    background-color: #2c3e50;
-  }
-  
-
-  div.a {
-    text-align: center;
-  }
-
-
-
 * {
   font-family: Raleway;
+}
+
+body {
+  background-color: #c2bdbd;
 }
 
 ::-webkit-scrollbar {
@@ -67,23 +11,33 @@
     background: transparent; /* make scrollbar transparent */
 }
 
+.page-footer{
+    /* background-color:#1a252f; */
+    background-color: #2c3e50!important;
+
+    color: #fff;
+    font-size: 80%;
+}
+  
+div.a {
+    text-align: center;
+}
 
 .page-footer{
     background-color: #2c3e50!important;
     color: #fff;
     font-size: 80%;
- }
+}
 
- /* Style the button and place it in the middle of the container/image */
+ /* Style the button and place it in the middle of the container/image
 .home-img {
   position: relative;
   top: 50%;
   color: white;
   cursor: pointer;
-  
   font-size: 2em;
   font-weight: 600;
-} 
+}  */
 
 
 #btn-in {
@@ -107,10 +61,6 @@
 } 
 
 
-
-body {
-  background-color: #c2bdbd;
-}
 
 .accordion {
   background-color: #eee;
@@ -148,4 +98,9 @@ body {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+}
+
+.row {
+  margin-left: 0!important;
+  margin-right: 0!important;
 }

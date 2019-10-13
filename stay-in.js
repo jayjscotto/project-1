@@ -5,12 +5,21 @@ $("#search-btn-recipe").on("click", function() {
     //value of search input	
 
     let mainIngridient = $("#search-value").val();	
-
+    let mealType = $("#meal-type-select").val();
+    let cuisineType = $("#cuisine-select").val();
+    let health = $("#dietary-select").val();
 
     //Edamam API info	
     const APIkey = "a8f82bad4a3cd7ae69e3468a1f8e22d2";	
     const appID = "d2dacec9";	
-    const queryURL = `https://api.edamam.com/search?q=${mainIngridient}&app_id=${appID}&app_key=${APIkey}`	
+    const queryURL = `https://api.edamam.com/search?q=${mainIngridient}&app_id=${appID}&app_key=${APIkey}&mealType=${mealType}&cuisineType=${cuisineType}&health=${health}`	
+
+    console.log(queryURL);
+
+    
+    // let loadingGif = $("<img>").attr("src", "images/loading.gif").attr("class", "loadingIMG mx-auto");
+    // col.append(loadingGif)
+    // $("#recipe-cards").append(col);
 
     //ajax call to get information from Edamam	
     $.ajax({	
@@ -19,6 +28,7 @@ $("#search-btn-recipe").on("click", function() {
         contentType: "application/json"	
     }).then(function(response) {	
         console.log(response)	
+        loadingGif.detach();
         //variable for the results array	
         let resultsArr = response.hits;	
 
@@ -35,7 +45,7 @@ $("#search-btn-recipe").on("click", function() {
 
             //defines card element from bootstrap	
             let card = $("<div>").attr("class", "card mx-auto my-3 text-align-center");	
-            card.attr("style", "width: 25rem; height: 35rem")	
+            card.attr("style", "width: 25rem; height: 25rem")	
 
 
             //recipe image	

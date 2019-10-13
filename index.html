@@ -64,15 +64,16 @@
 
 
     <!-- EAT IN FORM -->
-    <div id="stay-in" class="row mt-4">
+    <div id="stay-in" class="row mt-2">
         <div class="col-6 border border-rounded ">
-            <form>
+            <form class="my-2">
                 <div class="form-group">
-                <label class="font-weight-bold" for="main-ingredient">Main Ingredient: </label>
+                <h5 class="text-center font-weight-bold">* required fields</h5>
+                <label class="font-weight-bold" for="main-ingredient">Main Ingredient*: </label>
                 <input type="text" class="form-control" id="main-ingredient" placeholder="ie. Steak">
                 </div>
                 <div class="form-group">
-                <label class="font-weight-bold" for="meal-type">Meal Type:</label>
+                <label class="font-weight-bold" for="meal-type">Meal Type*:</label>
                 <select id="meal-type-select" class="form-control">
                         <option data-value=""></option>
                         <option data-value="Breakfast">Breakfast</option>
@@ -83,8 +84,9 @@
                 </select>
                 </div>
                 <div class="form-group">
-                    <label class="font-weight-bold"for="dietary-restriction">Dietary Restriction:</label>
+                    <label class="font-weight-bold"for="dietary-restriction">Dietary Restriction*: </label>
                     <select id="dietary-select" class="form-control">
+                            <option data-value=""></option>
                             <option data-value="alcohol-free">Alcohol-free</option>
                             <option data-value="celery-free">Celery-free</option>
                             <option data-value="dairy-free">Dairy-free</option>
@@ -100,6 +102,7 @@
                 <div class="form-group">
                     <label class="font-weight-bold"for="cuisine-type">Cuisine Type:</label>
                     <select id="cuisine-select" class="form-control">
+                            <option data-value=""></option>
                             <option data-value="American">American</option>
                             <option data-value="Chinese">Chinese</option>
                             <option data-value="French">French</option>
@@ -111,54 +114,24 @@
                             <option data-value="Middle Eastern">Middle Eastern</option>
                     </select>
                 </div>
-                <button id="search-btn" class="btn  btn-danger mx-3 my-2 my-sm-0">Search</button>
+                <button id="search-btn-recipe" class="btn btn-outline-success mx-3 my-2 my-sm-0">Search</button>
             </form>
         </div>
         <div class="col-6 border border-rounded ">
             <h4 class="text-center">Please add your favorites here</h4>
         </div>
     </div>
-    <div id="recipe-cards" class="row my-4 ">
+    <div id="recipe-cards" class="row my-4">
     </div>
 
     <!--EAT OUT FORM-->
-    <div id="go-out" class="row mt-4">
+    <div id="go-out" class="row mt-2">
         <div class="col-6 border border-rounded border-danger">
-            <form>
+            <form class="my-4">
                 <div class="form-group">
-                    <label for="location">Location</label>
-                    <input type="text" class="form-control" id="restaurant-location" placeholder="ie. New York City">
+                    <label for="location">Location:</label>
+                    <input type="text" class="form-control" id="restaurant-location" placeholder="ie. New York">
                 </div>
-                <!--
-                <div class="form-group">
-                    <label for="dietary-restriction">Dietary Restriction:</label>
-                    <select id="dietary-select" class="form-control">
-                            <option data-value="alcohol-free">Alcohol-free</option>
-                            <option data-value="celery-free">Celery-free</option>
-                            <option data-value="dairy-free">Dairy-free</option>
-                            <option data-value="gluten-free">Gluten-free</option>
-                            <option data-value="keto-friendly">Keto</option>
-                            <option data-value="shellfish-free">Shellfish</option>
-                            <option data-value="paleo">Paleo</option>
-                            <option data-value="peanut-free">Peanuts</option>
-                            <option data-value="vegan">Vegan</option>
-                            <option data-value="vegetarian">Vegetarian</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="cuisine-type">Cuisine Type</label>
-                    <select id="cuisine-select" class="form-control">
-                            <option data-value="American">American</option>
-                            <option data-value="Chinese">Chinese</option>
-                            <option data-value="French">French</option>
-                            <option data-value="Indian">Indian</option>
-                            <option data-value="Italian">Italian</option>
-                            <option data-value="Japanese">Japanese</option>
-                            <option data-value="Mediterranean">Mediterranean</option>
-                            <option data-value="Mexican">Mexican</option>
-                            <option data-value="Middle Eastern">Middle Eastern</option>
-                    </select>
-                </div>-->
                 <button id="search-btn-restaurant" class="btn btn-outline-success mx-3 my-2 my-sm-0">Search</button>
             </form>
         </div>
@@ -167,7 +140,7 @@
         </div>
     </div>
     <div id="restaurant-cards" class="row my-4 ">
-        
+
     </div>
 
 

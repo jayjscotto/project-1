@@ -22,23 +22,48 @@ $(document).ready(function() {
         e.preventDefault();
         e.stopPropagation();
 
+
+        $("#restaurant-cards").empty();
+        $("#recipe-cards").empty();
+        
+         //set loading gif image
+         let loadingGif = $("<img>").attr("src", "images/loading.gif")
+         loadingGif.attr("id", "loading-gif");
+
+         //set col where loading gif will appear
+         let col = $("<div>").attr("class", "col text-center")
+         col.attr("id", "loading-col");
+         col.append(loadingGif);
+
         //conditional statement that chooses the ajax call
         if ($("#quick-search").val() === "Stay In") {
+           
+            $("#go-out").hide();
+            $("#restaurant-cards").hide();
+
             $("#stay-in").show();
+            $("#recipe-cards").show();
+
+            //append loading col to the cards area to display when loading ajax response
+            $("#recipe-cards").append(col);
             //use ajax call from stay-in.js
             let mainIngridient = $("#quick-search-val").val();
 
             //Edamam API info
             const APIkey = "a8f82bad4a3cd7ae69e3468a1f8e22d2";
             const appID = "d2dacec9";
-            const queryURL = `https://api.edamam.com/search?q=${mainIngridient}&app_id=${appID}&app_key=${APIkey}`
+            const queryURL = `https://api.edamam.com/search?q=${mainIngridient}&app_id=${appID}&app_key=${APIkey}`;
 
+     
             //ajax call to get information from Edamam
             $.ajax({
                 url: queryURL,
                 method: "GET",
-                contentType: "application/json"
+                contentType: "application/json",
             }).then(function(response) {
+                console.log(response)
+                //remove loading gif
+                $("#loading-col").detach();
                 //variable for the results array
                 let resultsArr = response.hits;
 
@@ -55,7 +80,7 @@ $(document).ready(function() {
                     
                     //defines card element from bootstrap
                     let card = $("<div>").attr("class", "card mx-auto my-3 text-align-center");
-                    card.attr("style", "width: 25rem; height: 35rem")
+                    card.attr("style", "width: 25rem; height: 25rem")
             
             
                     //recipe image
@@ -101,84 +126,87 @@ $(document).ready(function() {
 
                     
         } else if ($("#quick-search").val() === "Go Out") {
+            $("#stay-in").hide();
+            $("#recipe-cards").hide();
+            $("#restaurant-cards").show();
             $("#go-out").show();
-                    //use ajax call from outlog.js with select() function and search value parameter
-                    console.log($("#quick-search-val").val())
-                    let searchVal = $("#quick-search-val").val();
-                    //TODO: show the restaurant search results area
-                    var queryURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchVal;
 
-                    $.ajax({
-                        url: queryURL,
-                        method: "GET",
-                        headers: {
-                            "user-key": "85b611ff124684e64a5eee0c57b6192c"
-                        }
-                    }).then(function(data) {
-                        console.log(data)
-                        //get coordinates of first suggested city
-                        var cityId = data.location_suggestions[0].id;
-            
-            
-                        //USE SOMETHING OTHER THAN COLLECTIONS
-            
-                        //second query url
-                        var queryTwoURL = `https://developers.zomato.com/api/v2.1/location_details?entity_id=${cityId}&entity_type=city`;
-            
-                        $.ajax({
-                            url: queryTwoURL,
-                            method: "GET",
-                            headers: {
-                                "user-key": "85b611ff124684e64a5eee0c57b6192c"
-                            }
-                        }).then(function(response) {
+            $("#restaurant-cards").append(col);
 
-                            console.log(response);
+            //use ajax call from outlog.js with select() function and search value parameter
+            console.log($("#quick-search-val").val())
+            let searchVal = $("#quick-search-val").val();
+            //TODO: show the restaurant search results area
+            var queryURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchVal;
 
-                            //get best rated restaurants list
-                            let resultsArr = response.best_rated_restaurant;
+            $.ajax({
+                url: queryURL,
+                method: "GET",
+                headers: {
+                    "user-key": "85b611ff124684e64a5eee0c57b6192c"
+                }
+            }).then(function(data) {
+                console.log(data)
+                //get coordinates of first suggested city
+                var cityId = data.location_suggestions[0].id;
 
-                            
-                            console.log(resultsArr)
-                            //for loop to work with top 10 restaurants
-                            for (let i = 0; i < resultsArr.length; i++) {
-                                //new col for each card
+                //second query url
+                var queryTwoURL = `https://developers.zomato.com/api/v2.1/location_details?entity_id=${cityId}&entity_type=city`;
+    
+                $.ajax({
+                    url: queryTwoURL,
+                    method: "GET",
+                    headers: {
+                        "user-key": "85b611ff124684e64a5eee0c57b6192c"
+                    }
+                }).then(function(response) {
+                    $("#loading-col").detach();
+                    console.log(response);
 
-                                console.log(resultsArr[i])
-                                let col = $("<div>").attr("class", "col-5 mx-auto text-align-center");
+                    //get best rated restaurants list
+                    let resultsArr = response.best_rated_restaurant;
 
-                                //new card for each restaurant
-                                let card = $("<div>").attr("class", "card mx-auto my-4");
+                    
+                    console.log(resultsArr)
+                    //for loop to work with top 10 restaurants
+                    for (let i = 0; i < resultsArr.length; i++) {
+                        //new col for each card
 
-                                //restaurant img
-                                let restaurantImage = $("<img>").attr("src", resultsArr[i].restaurant.photos[0].photo.url);	
-                                restaurantImage.attr("height", "150");	
-                                restaurantImage.attr("width", "250");	
-                                restaurantImage.attr("class", "mx-auto");
+                        console.log(resultsArr[i])
+                        let col = $("<div>").attr("class", "col-5 mx-auto text-align-center");
 
-                                //restaurant name
-                                let link = $("<a>").attr("href", resultsArr[i].restaurant.menu_url);
-                                let restaurantTitle = $("<h5>").attr("class", "card-title mx-auto text-align-center");	
-                                restaurantTitle.text(resultsArr[i].restaurant.name);
-                                link.append(restaurantTitle);
-                                
-                                //cuisine types
-                                let cuisines = $("<p>").text(resultsArr[i].restaurant.cuisines);
+                        //new card for each restaurant
+                        let card = $("<div>").attr("class", "card mx-auto my-4");
 
-                                
+                        //restaurant img
+                        let restaurantImage = $("<img>").attr("src", resultsArr[i].restaurant.photos[0].photo.url);	
+                        restaurantImage.attr("height", "150");	
+                        restaurantImage.attr("width", "250");	
+                        restaurantImage.attr("class", "mx-auto");
 
-                                //avg cost for two
-                                let avgCost = $("<p>").text(`Average cost for two: ${resultsArr[i].restaurant.average_cost_for_two}`);
+                        //restaurant name
+                        let link = $("<a>").attr("href", resultsArr[i].restaurant.menu_url);
+                        let restaurantTitle = $("<h5>").attr("class", "card-title mx-auto text-align-center");	
+                        restaurantTitle.text(resultsArr[i].restaurant.name);
+                        link.append(restaurantTitle);
+                        
+                        //cuisine types
+                        let cuisines = $("<p>").text(resultsArr[i].restaurant.cuisines);
 
-                                //address
-                                let address = $("<p>").text(resultsArr[i].restaurant.location.address);
+                        
 
-                                card.append(restaurantImage, link, cuisines, avgCost, address);
-                                col.append(card);
-                                $("#restaurant-cards").append(col);
-                            }
+                        //avg cost for two
+                        let avgCost = $("<p>").text(`Average cost for two: ${resultsArr[i].restaurant.average_cost_for_two}`);
 
-                        })
+                        //address
+                        let address = $("<p>").text(resultsArr[i].restaurant.location.address);
+
+                        card.append(restaurantImage, link, cuisines, avgCost, address);
+                        col.append(card);
+                        $("#restaurant-cards").append(col);
+                    }
+
+                })
                 })
         } else {
                     console.log('quick search false')
