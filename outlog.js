@@ -47,36 +47,40 @@ function restaurantSearch(searchVal) {
 
             //get best rated restaurants list
             let resultsArr = response.best_rated_restaurant;
+            
+            //appending results and add to favs button
+                let firstCol = $("<div>").attr("class", "col text-center");
+                let favButton = $("<button>").attr("class", "btn btn-outline-success text-center mx-auto");
+                favButton.text("Add to Favorites");
+                favButton.attr("data-name", searchVal);
+                favButton.attr("id", "add-restaurant-favorite");
 
-            console.log(resultsArr)
+                let results = $("<h3>").attr("class", "text-center mx-auto").text("Results");
+                
+                firstCol.append(results, favButton);
+                $("#restaurant-results").append(firstCol);
+        
             //for loop to work with top 10 restaurants
             for (let i = 0; i < resultsArr.length; i++) {
                 //new col for each card
-
                 console.log(resultsArr[i])
                 let col = $("<div>").attr("class", "col-5 mx-auto text-align-center");
-
                 //new card for each restaurant
                 let card = $("<div>").attr("class", "card mx-auto my-4");
-
                 //restaurant img
                 let restaurantImage = $("<img>").attr("src", resultsArr[i].restaurant.photos[0].photo.url);	
                 restaurantImage.attr("height", "150");	
                 restaurantImage.attr("width", "250");	
                 restaurantImage.attr("class", "mx-auto");
-
                 //restaurant name
                 let link = $("<a>").attr("href", resultsArr[i].restaurant.menu_url);
                 let restaurantTitle = $("<h5>").attr("class", "card-title mx-auto text-align-center");	
                 restaurantTitle.text(resultsArr[i].restaurant.name);
                 link.append(restaurantTitle);
-                
                 //cuisine types
                 let cuisines = $("<p>").text(resultsArr[i].restaurant.cuisines);
-
                 //avg cost for two
                 let avgCost = $("<p>").text(`Average cost for two: ${resultsArr[i].restaurant.average_cost_for_two}`);
-
                 //address
                 let address = $("<p>").text(resultsArr[i].restaurant.location.address);
 

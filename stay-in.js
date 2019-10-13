@@ -24,6 +24,19 @@ $("#search-btn-recipe").on("click", function() {
 
         $("#restaurant-cards").append(col);
 
+        //appending results and add to favorites button
+        let firstCol = $("<div>").attr("class", "col text-center");
+        let favButton = $("<button>").attr("class", "btn btn-outline-success text-center mx-auto");
+        favButton.text("Add to Favorites");
+        favButton.attr("data-name", searchVal);
+        favButton.attr("id", "add-recipe-favorite");
+        
+
+        let results = $("<h3>").attr("class", "text-center mx-auto").text("Results");
+        
+        firstCol.append(results, favButton);
+        $("#recipe-results").append(firstCol);
+    
         //Edamam API info	
         const APIkey = "a8f82bad4a3cd7ae69e3468a1f8e22d2";	
         const appID = "d2dacec9";	

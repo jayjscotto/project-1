@@ -133,3 +133,20 @@ function recipeSetUp(data) {
         $(".logInReq").show();
     }
 }
+
+$("#add-recipe-favorite").on("click", function(e){
+    e.preventDefault();
+    if (user) {
+        const newFav = $("#add-recipe-favorite").attr("data-name");
+        db.collectiton("recipe-favorites").add({name: newFav});
+    }
+
+});
+
+$("#add-restaurant-favorite").on("click", function(e){
+    e.preventDefault();
+    if (user) {
+        const newFav = $("#add-restaurant-favorite").attr("data-name");
+        db.collection("restaurant-favorites").add({city: newFav});
+    }
+})
