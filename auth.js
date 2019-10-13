@@ -18,42 +18,65 @@ var firebaseConfig = {
     //auth init
     const auth = firebase.auth();
 
-  const signupForm  = $("#signup-form");
+//signup
+const signupForm  = $("#signup-form");
 
-  //signup form submit event listener
-  signupForm.on("submit", function(e) {
+//signup method
+signupForm.on("submit", function(e) {
     e.preventDefault();
 
-    //get value of input fields
+    //get value of signup input fields
     const email = $("#email-signup").val();
     const password = $("#password-signup").val();
 
+    //auth method to create account in firebase
     auth.createUserWithEmailAndPassword(email, password).then(function(credential) {
-        //log user cred from firebase
-        console.log(credential.user);
         //grab modal
         const signUpModal = $("#signUpModalCenter")
 
         //close and reset the modal
         signUpModal.modal('hide');
         $("#signup-form")[0].reset();
-      
     });
-  })
+})
 
 
+const logOut = $("#logout");
 
-//   const loginForm = $("#loginForm")
-//   //login form submit event listener
-//   loginForm.on("submit", function(e) {
-//     e.preventDefault();
+//logout method
+logOut.on("click", function(e){
+    e.preventDefault();
+    auth.signOut();
+})
 
-//     //get value of input fields
-//     const email = $("#email-signup").val();
-//     const password = $("#password-signup").val();
-//     console.log(email, password);
+//login method
+const loginForm = $("#loginForm")
+//login form submit event listener
+loginForm.on("submit", function(e) {
+    e.preventDefault();
 
+    //get value of user login input fields
+    const email = $("#email-login").val();
+    const password = $("#password-login").val();
 
+    auth.signInWithEmailAndPassword(email, password).then(function(credential) {
+        //close modal and reset form
+        const logInModal = $("#logInModalCenter");
+        logInModal.modal('hide');
+        $("#loginForm").reset();
+    })
 
-//   })
+})
 
+//listening to auth status changes
+auth.onAuthStateChanged(function(user) {
+    if (user) {
+        console.log("user logged in", user);
+    } else {
+        console.log("user logged out");
+    }
+})
+
+db.collection("recipe-favorites").get().then(function(snapshot) {
+    console.log(snapshot.docs)
+})
