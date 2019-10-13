@@ -76,7 +76,7 @@ $("#search-btn-recipe").on("click", function() {
 
                 //defines card element from bootstrap	
                 let card = $("<div>").attr("class", "card mx-auto my-3 p-3");	
-                card.attr("style", "width: 25rem; height: 30rem");
+                card.attr("style", "width: 25rem; height: 30rem; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);");
 
                 //recipe image	
                 let recipeImage = $("<img>").attr("src", resultsArr[i].recipe.image);	

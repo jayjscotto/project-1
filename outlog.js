@@ -74,6 +74,7 @@ function restaurantSearch(searchVal) {
                 let col = $("<div>").attr("class", "col-5 mx-auto text-align-center");
                 //new card for each restaurant
                 let card = $("<div>").attr("class", "card mx-auto my-4 p-3");
+                card.attr("style", "box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);")
                 //restaurant img
                 let restaurantImage = $("<img>").attr("src", resultsArr[i].restaurant.photos[0].photo.url);	
                 restaurantImage.attr("height", "225");	
@@ -81,7 +82,7 @@ function restaurantSearch(searchVal) {
                 restaurantImage.attr("class", "mx-auto my-2");
                 //restaurant name
                 let link = $("<a>").attr("href", resultsArr[i].restaurant.menu_url);
-                let restaurantTitle = $("<h5>").attr("class", "card-title mx-auto text-align-center");	
+                let restaurantTitle = $("<h4>").attr("class", "card-title mx-auto text-center");	
                 restaurantTitle.text(resultsArr[i].restaurant.name);
                 link.append(restaurantTitle);
                 //cuisine types
