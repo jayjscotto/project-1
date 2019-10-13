@@ -10,16 +10,16 @@ function restaurantSearch(searchVal) {
 
     var queryURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchVal;
 
-        //set loading gif image
-        let loadingGif = $("<img>").attr("src", "images/loading.gif")
-        loadingGif.attr("id", "loading-gif");
+    //set loading gif image
+    let loadingGif = $("<img>").attr("src", "images/loading.gif")
+    loadingGif.attr("id", "loading-gif");
 
-        //set col where loading gif will appear
-        let col = $("<div>").attr("class", "col text-center")
-        col.attr("id", "loading-col");
-        col.append(loadingGif);
+    //set col where loading gif will appear
+    let col = $("<div>").attr("class", "col text-center")
+    col.attr("id", "loading-col");
+    col.append(loadingGif);
 
-        $("#restaurant-cards").append(col);
+    $("#restaurant-cards").append(col);
 
     $.ajax({
         url: queryURL,

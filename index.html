@@ -17,7 +17,7 @@
    
     <div class="row nav-row">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-            <div class="col-3">
+            <div class="col-2">
                 <a class="navbar-brand" href="#">
                     <h3 class="my-auto text-left mr-5">EatIn//EatOut</h3>
                 </a>
@@ -37,15 +37,7 @@
                 </form>
             </div>
             <div class="collapse navbar-collapse ml-5" id="navbar">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <!--Login functionality begin-- Login Button-->
-                            <button type="button" id="login-button" class="btn btn-secondary mx-2" data-toggle="modal" data-target="#logInModalCenter"> Log In</button>
-                        </li>
-                        <li class="nav-item">
-                            <!--Sign Up functionality begin-- Sign Up Button-->
-                            <button type="button" id="login-button" class="btn btn-secondary mx-2" data-toggle="modal" data-target="#signUpModalCenter"> Sign Up</button>
-                        </li>
+                    <ul class="navbar-nav pl-5">
                         <li class="nav-item">
                             <a class="nav-link" href="help.html">Help</a>
                         </li>
@@ -53,7 +45,18 @@
                             <a class="nav-link" href="about.html">About</a>
                         </li>
                         <li class="nav-item">
-                                <a id="logout" class="nav-link">Log Out</a>
+                            <button type="button" id="logout" class="btn btn-secondary mx-2" >Log Out</button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" id="account" class=" logged-in btn btn-secondary mx-2" data-toggle="modal" data-target="#AccountModalCenter" style="display:none">Account</button>
+                        </li>
+                        <li class="nav-item">
+                            <!--Login functionality begin-- Login Button-->
+                            <button type="button" id="login-button" class="logged-out btn btn-secondary mx-2" data-toggle="modal" data-target="#logInModalCenter" style="display:none"> Log In</button>
+                        </li>
+                        <li class="nav-item">
+                            <!--Sign Up functionality begin-- Sign Up Button-->
+                            <button type="button" id="login-button" class="logged-out btn btn-secondary mx-2" data-toggle="modal" data-target="#signUpModalCenter" style="display:none"> Sign Up</button>
                         </li>
                     </ul>
             </div>
@@ -65,7 +68,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="Login-Title"></h5> 
+                    <h5 class="modal-title" id="Login-Title">Login</h5> 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -81,7 +84,7 @@
                             <label for="password-login">Password:</label>
                             <input type="password" autocomplete="current-password" class="form-control" id="password-login" placeholder="Password">
                         </div>
-                        <button type="submit" id="login-submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" id="login-submit" class="btn btn-success">Submit</button>
                     </form>
                 </div>
             </div>
@@ -90,28 +93,45 @@
 
 
     <!--Sign Up modal-->
-    <div class="modal fade" id="signUpModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal modal-dark fade" id="signUpModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="SignUp-Title">Sign Up</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="signup-body" class="modal-body">
+                <form id="signup-form">
+                    <div class="form-group">
+                        <label for="email-signup">Email address:</label>
+                        <input type="email" autocomplete="email" class="form-control" id="email-signup" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="password-signup">Password:</label>
+                        <input type="password" autocomplete="new-password" class="form-control" id="password-signup" placeholder="Password">
+                    </div>
+                    <button type="submit" id="signUp-submit" class="btn btn-success">Submit</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--ACCOUNT Modal-->
+    <div class="modal fade" id="AccountModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="SignUp-Title">Sign Up</h5>
+                        <h5 class="modal-title" id="Login-Title">Account</h5> 
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div id="signup-body" class="modal-body">
-                    <form id="signup-form">
-                        <div class="form-group">
-                            <label for="email-signup">Email address:</label>
-                            <input type="email" autocomplete="email" class="form-control" id="email-signup" aria-describedby="emailHelp" placeholder="Enter email">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="password-signup">Password:</label>
-                            <input type="password" autocomplete="new-password" class="form-control" id="password-signup" placeholder="Password">
-                        </div>
-                        <button type="submit" id="signUp-submit" class="btn btn-primary">Submit</button>
-                    </form>
+                    <div id="Account-body" class="modal-body">
+                    
                     </div>
                 </div>
             </div>
@@ -188,14 +208,18 @@
         </div>
         <div class="col-6 border border-rounded ">
             <h4 class="text-center">Favorites: </h4>
+            <div id="recipe-favorites">
+                <h4 class="logInReq text-center">Log In or Register to set and/or view Favorites</h4>
+            </div>
         </div>
     </div>
     <div id="recipe-cards" class="row my-4">
+
     </div>
 
     <!--EAT OUT FORM-->
     <div id="go-out" class="row mt-2">
-        <div class="col-6 border border-rounded border-danger">
+        <div class="col-6 border border-rounded">
             <form class="my-4">
                 <div class="form-group">
                     <label for="location">Location:</label>
@@ -204,9 +228,11 @@
                 <button id="search-btn-restaurant" class="btn btn-outline-success mx-3 my-2 my-sm-0">Search</button>
             </form>
         </div>
-        <div class="col-6 text-center border border-rounded border-danger">
-            <h4 class="">Favorites:</h4>
-            <div id="restaurant-favorites"></div>
+        <div class="col-6 border border-rounded">
+            <h4 class="text-center">Favorites:</h4>
+            <div id="restaurant-favorites">
+                <h4 class="logInReq text-center">Log In or Register to set and/or view Favorites</h4>
+            </div>
         </div>
     </div>
     <div id="restaurant-cards" class="row my-4 ">
