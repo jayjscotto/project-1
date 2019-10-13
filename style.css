@@ -104,3 +104,7 @@ div.a {
   margin-left: 0!important;
   margin-right: 0!important;
 }
+
+.modal-backdrop {
+  z-index: -1;
+}
