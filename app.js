@@ -1,16 +1,22 @@
 // set UI classes and function--- not working 
 const loggedOutLinks = $(".logged-out");
 const loggedInLinks = $(".logged-in");
+const accountInfo = $("#account-info");
 
 function setUI (user){
     if (user) {
         //toggle UI elements
         loggedInLinks.show();
         loggedOutLinks.hide();
+        //account info
+        const loggedIn = $("<div>").text(`Account Username: ${user.email}`).attr("class", "text-center");
+        accountInfo.append(loggedIn);
     } else {
         //toggle UI elements
         loggedOutLinks.show();
         loggedInLinks.hide();
+        //hide account info:
+        accountInfo.empty();
     }
 }
 

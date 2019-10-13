@@ -75,18 +75,17 @@ $("#search-btn-recipe").on("click", function() {
                 link.attr("class", "mx-auto text-align-center")	
 
                 //defines card element from bootstrap	
-                let card = $("<div>").attr("class", "card mx-auto my-3 text-align-center");	
-                card.attr("style", "width: 25rem; height: 25rem")	
-
+                let card = $("<div>").attr("class", "card mx-auto my-3 p-3");	
+                card.attr("style", "width: 25rem; height: 30rem");
 
                 //recipe image	
                 let recipeImage = $("<img>").attr("src", resultsArr[i].recipe.image);	
-                recipeImage.attr("height", "150");	
-                recipeImage.attr("width", "250");	
+                recipeImage.attr("height", "225");	
+                recipeImage.attr("width", "300");	
                 recipeImage.attr("class", "mx-auto");	
 
                 //recipe title	
-                let recipeTitle = $("<h5>").attr("class", "card-title mx-auto text-align-center");	
+                let recipeTitle = $("<h5>").attr("class", "card-title mx-auto text-center");	
                 recipeTitle.text(resultsArr[i].recipe.label);	
 
                 //ingridients list to be added to each card	

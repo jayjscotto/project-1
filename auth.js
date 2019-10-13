@@ -18,8 +18,10 @@ var firebaseConfig = {
     //auth init
     const auth = firebase.auth();
 
-//signup
-const signupForm  = $("#signup-form");
+    //signup sign in and log out
+    const signupForm  = $("#signup-form");
+    const logOut = $("#logout");
+    const loginForm = $("#loginForm");
 
 //signup method
 signupForm.on("submit", function(e) {
@@ -40,21 +42,15 @@ signupForm.on("submit", function(e) {
     });
 })
 
-
-const logOut = $("#logout");
-
 //logout method
 logOut.on("click", function(e){
     e.preventDefault();
     auth.signOut();
 })
 
-//login method
-const loginForm = $("#loginForm")
 //login form submit event listener
 loginForm.on("submit", function(e) {
     e.preventDefault();
-
     //get value of user login input fields
     const email = $("#email-login").val();
     const password = $("#password-login").val();
@@ -65,24 +61,26 @@ loginForm.on("submit", function(e) {
         logInModal.modal('hide');
         $("#loginForm")[0].reset();
     })
-
 })
 
 //listening to auth status changes
 auth.onAuthStateChanged(function(user) {
     if (user) {
-        console.log(`logged in`)
+        //recipe favs
         db.collection("recipe-favorites").onSnapshot(function(snapshot) {
             $("#recipe-favorites").empty();
             recipeSetUp(snapshot.docs);
         })
         
+        //restaurant faves
         db.collection("restaurant-favorites").onSnapshot(function(snapshot) {
             $("#restaurant-favorites").empty();
             restaurantSetUp(snapshot.docs);
         })
 
+        //set UI
         setUI(user);
+
     } else {
         setUI();
         recipeSetUp([]);
@@ -155,3 +153,4 @@ function addRestaurantFavorite(fav) {
         console.log(err.message);
     });
 };
+

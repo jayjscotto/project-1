@@ -73,23 +73,23 @@ function restaurantSearch(searchVal) {
                 //console.log(resultsArr[i])
                 let col = $("<div>").attr("class", "col-5 mx-auto text-align-center");
                 //new card for each restaurant
-                let card = $("<div>").attr("class", "card mx-auto my-4");
+                let card = $("<div>").attr("class", "card mx-auto my-4 p-3");
                 //restaurant img
                 let restaurantImage = $("<img>").attr("src", resultsArr[i].restaurant.photos[0].photo.url);	
-                restaurantImage.attr("height", "150");	
-                restaurantImage.attr("width", "250");	
-                restaurantImage.attr("class", "mx-auto");
+                restaurantImage.attr("height", "225");	
+                restaurantImage.attr("width", "300");	
+                restaurantImage.attr("class", "mx-auto my-2");
                 //restaurant name
                 let link = $("<a>").attr("href", resultsArr[i].restaurant.menu_url);
                 let restaurantTitle = $("<h5>").attr("class", "card-title mx-auto text-align-center");	
                 restaurantTitle.text(resultsArr[i].restaurant.name);
                 link.append(restaurantTitle);
                 //cuisine types
-                let cuisines = $("<p>").text(resultsArr[i].restaurant.cuisines);
+                let cuisines = $("<p>").text(`Cuisine: ${resultsArr[i].restaurant.cuisines}`);
                 //avg cost for two
-                let avgCost = $("<p>").text(`Average cost for two: ${resultsArr[i].restaurant.average_cost_for_two}`);
+                let avgCost = $("<p>").text(`Average cost for two: $${resultsArr[i].restaurant.average_cost_for_two}.00`);
                 //address
-                let address = $("<p>").text(resultsArr[i].restaurant.location.address);
+                let address = $("<p>").text(`Address: ${resultsArr[i].restaurant.location.address}`);
 
                 card.append(restaurantImage, link, cuisines, avgCost, address);
                 col.append(card);
