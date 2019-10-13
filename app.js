@@ -14,7 +14,6 @@ $(document).ready(function() {
         e.preventDefault();
         $("#stay-in").hide();
         $("#go-out").show();
-        console.log('hey')
     })
 
     ///////QUICK SEARCH:
@@ -22,9 +21,6 @@ $(document).ready(function() {
         //prevent default
         e.preventDefault();
         e.stopPropagation();
-
-        //console log to check the value that determines which ajax call we are using
-        console.log($("#quick-search").val());
 
         //conditional statement that chooses the ajax call
         if ($("#quick-search").val() === "Stay In") {
@@ -43,7 +39,6 @@ $(document).ready(function() {
                 method: "GET",
                 contentType: "application/json"
             }).then(function(response) {
-                console.log(response)
                 //variable for the results array
                 let resultsArr = response.hits;
 
@@ -106,6 +101,7 @@ $(document).ready(function() {
 
                     
         } else if ($("#quick-search").val() === "Go Out") {
+            $("#go-out").show();
                     //use ajax call from outlog.js with select() function and search value parameter
                     console.log($("#quick-search-val").val())
                     let searchVal = $("#quick-search-val").val();
@@ -140,36 +136,52 @@ $(document).ready(function() {
                             console.log(response);
 
                             //get best rated restaurants list
-                            let resultsArr = response.best_rated_restaurants;
+                            let resultsArr = response.best_rated_restaurant;
 
+                            
+                            console.log(resultsArr)
                             //for loop to work with top 10 restaurants
                             for (let i = 0; i < resultsArr.length; i++) {
                                 //new col for each card
-                                let col = $("<div>").attr("class", "col-6 mx-auto text-align-center");
+
+                                console.log(resultsArr[i])
+                                let col = $("<div>").attr("class", "col-5 mx-auto text-align-center");
 
                                 //new card for each restaurant
-                                let card = $("<div>").attr("class", "card");
+                                let card = $("<div>").attr("class", "card mx-auto my-4");
 
-                                //
+                                //restaurant img
+                                let restaurantImage = $("<img>").attr("src", resultsArr[i].restaurant.photos[0].photo.url);	
+                                restaurantImage.attr("height", "150");	
+                                restaurantImage.attr("width", "250");	
+                                restaurantImage.attr("class", "mx-auto");
 
+                                //restaurant name
+                                let link = $("<a>").attr("href", resultsArr[i].restaurant.menu_url);
+                                let restaurantTitle = $("<h5>").attr("class", "card-title mx-auto text-align-center");	
+                                restaurantTitle.text(resultsArr[i].restaurant.name);
+                                link.append(restaurantTitle);
+                                
+                                //cuisine types
+                                let cuisines = $("<p>").text(resultsArr[i].restaurant.cuisines);
+
+                                
+
+                                //avg cost for two
+                                let avgCost = $("<p>").text(`Average cost for two: ${resultsArr[i].restaurant.average_cost_for_two}`);
+
+                                //address
+                                let address = $("<p>").text(resultsArr[i].restaurant.location.address);
+
+                                card.append(restaurantImage, link, cuisines, avgCost, address);
+                                col.append(card);
+                                $("#restaurant-cards").append(col);
                             }
-                            //for loop
-                                //limited to 10 restaurants
 
-                                //bootstrap panel
-                                    //image
-                                    //restaurant name
-                                    //get cuisine type
-                                    //get cost for 2 (or price by $$$$)
-                                    //link to menu
-                        
-                            
-                                         
-                        
                         })
                 })
         } else {
-                    //modal to explain quick search?
+                    console.log('quick search false')
                 }
     });
 
