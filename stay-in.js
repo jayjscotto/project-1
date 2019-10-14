@@ -1,6 +1,6 @@
 //click listener for the search button	
-$("#search-btn-recipe").on("click", function() {	
-    event.preventDefault();	
+$("#search-btn-recipe").on("click", function(e) {	
+    e.preventDefault();	
     $("#recipe-cards").empty();	
     $("#restaurant-results").empty();
     $("#recipe-results").empty();
