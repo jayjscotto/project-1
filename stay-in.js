@@ -12,9 +12,9 @@ $("#search-btn-recipe").on("click", function() {
     function recipeSearch(searchVal) {
         //value of search input
         let mainIngridient = searchVal	
-        let mealType = $("#meal-type-select").val();
-        let cuisineType = $("#cuisine-select").val();
-        let health = $("#dietary-select").val();
+        // let mealType = $("#meal-type-select").val();
+        // let cuisineType = $("#cuisine-select").val();
+        // let health = $("#dietary-select").val();
 
         //set loading gif image
         let loadingGif = $("<img>").attr("src", "images/loading.gif")
@@ -46,15 +46,13 @@ $("#search-btn-recipe").on("click", function() {
         //Edamam API info	
         const APIkey = "a8f82bad4a3cd7ae69e3468a1f8e22d2";	
         const appID = "d2dacec9";	
-        const queryURL = `https://api.edamam.com/search?q=${mainIngridient}&app_id=${appID}&app_key=${APIkey}`
-        //&mealType=${mealType}&cuisineType=${cuisineType}&health=${health}`
-        
+        const queryURL = `http://api.edamam.com/search?app_id=${appID}&app_key=${APIkey}&q=${mainIngridient}`
 
         //ajax call to get information from Edamam	
         $.ajax({	
             url: queryURL,	
-            method: "GET",	
-            contentType: "application/json"	
+            method: "GET",
+            contentType: "application/json"
         }).then(function(response) {	
             //console.log(response)	
 

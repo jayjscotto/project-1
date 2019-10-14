@@ -42,7 +42,7 @@
                             <button type="button" href="help.html" id="help" class="btn btn-outline-success mx-2" data-toggle="modal" data-target="#HelpModalCenter">Help</button>
                         </li>
                         <li class="nav-item">
-                            <button type="button" href="about.html" id="about" class="btn btn-outline-success mx-2"><!-- data-toggle="modal" data-target="#aboutModalCenter" --> About</button>
+                            <button type="button" href="about.html" id="about" class="btn btn-outline-success mx-2" data-toggle="modal" data-target="#AboutModalCenter"> About</button>
                         </li>
                         <li class="nav-item">
                             <button type="button" id="logout" class="btn btn-outline-success mx-2">Log Out</button>
@@ -122,20 +122,20 @@
 
     <!--ACCOUNT Modal-->
     <div class="modal fade" id="AccountModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="Account-Title">Account Information</h5> 
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div id="account-info" class="modal-body">
-                        
-                    </div>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Account-Title">Account Information</h5> 
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="account-info" class="modal-body">
+                    
                 </div>
             </div>
         </div>
+    </div>
 
     <!-- HELP MODAL -->
     <div class="modal fade" id="HelpModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -164,7 +164,7 @@
                                 
                                     <button class="accordion">How do I create an account?</button>
                                     <div class="panel">
-                                      <p>You can login with your Google Account to create an account.</p>
+                                      <p>You can login with your e-mail to create an account.</p>
                                     </div>
                                 
                                     <button class="accordion">Does this app really search my area?</button>
@@ -219,6 +219,67 @@
             </div>
         </div>
 
+    <!-- ABOUT MODAL -->
+    <div class="modal fade" id="AboutModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="Account-Title">About</h5> 
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="about-info" class="modal-body">
+                    <section id="team">
+                        <div class="container">
+                            <h1 class="text-center">Our Team</h1>
+                            <div class="row">
+                            <div class="col profile-pic text-center">
+                            <div class="img-box">
+                                <img src="team/jason.jpg" class="img-responsive">
+                            </div>
+                            <h2>Jason</h2>
+                            <h3>founder / ceo</h3>
+                            
+                            </div>
+                            <div class="col profile-pic text-center">
+                            <div class="img-box">
+                                <img src="team/sugeeta.jpg" class="img-responsive">
+                            </div>
+                            <h2>Sugeeta</h2>
+                            <h3>Business Head</h3>
+                            
+                            </div>
+                            <div class="col profile-pic text-center">
+                            <div class="img-box">
+                                <img src="team/wismy.jpg" class="img-responsive">
+                            </div>
+                            <h2>Wismy</h2>
+                            <h3>Marketing Head</h3>
+                            
+                            </div>
+                            <div class="col profile-pic text-center">
+                            <div class="img-box">
+                                <img src="team/chris.jpg" class="img-responsive">
+                            </div>
+                            <h2>Chris</h2>
+                            <h3>Designer</h3>
+                            
+                            </div>
+                            <div class="col profile-pic text-center">
+                            <div class="img-box">
+                                <img src="team/ahmed.jpg" class="img-responsive">
+                            </div>
+                            <h2>Ahmed</h2>
+                            <h3>Social Media</h3>
+                            </div>
+                            </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <!-- HOME BUTTONS -->
     <div class="row home-row mt-5">
@@ -241,11 +302,10 @@
                 <div class="col-6 border border-rounded ">
                     <form class="my-2">
                         <div class="form-group">
-                        <h5 class="text-center font-weight-bold">* required fields</h5>
-                        <label class="font-weight-bold" for="main-ingredient">Main Ingredient*: </label>
-                        <input type="text" class="form-control" id="main-ingredient" placeholder="ie. Steak">
+                        <label class="font-weight-bold" for="main-ingredient">Main Ingredient: </label>
+                        <input type="text" class="form-control" id="main-ingredient" placeholder="ie. Steak, Salmon, Butter Chicken, etc.">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                         <label class="font-weight-bold" for="meal-type">Meal Type*:</label>
                         <select id="meal-type-select" class="form-control">
                                 <option data-value=""></option>
@@ -286,7 +346,7 @@
                                     <option data-value="Mexican">Mexican</option>
                                     <option data-value="Middle Eastern">Middle Eastern</option>
                             </select>
-                        </div>
+                        </div> -->
                         <button id="search-btn-recipe" class="btn btn-outline-success mx-3 my-2 my-sm-0">Search</button>
                     </form>
                 </div>
@@ -307,9 +367,9 @@
         <div class="col">
             <div class="row">
                 <div class="col-6 border border-rounded">
-                    <form class="my-4">
+                    <form class="my-2">
                         <div class="form-group">
-                            <label for="location">Location:</label>
+                            <label class="font-weight-bold" for="location">Location:</label>
                             <input type="text" class="form-control" id="restaurant-location" placeholder="ie. New York">
                         </div>
                         <button id="search-btn-restaurant" class="btn btn-outline-success mx-3 my-2 my-sm-0">Search</button>
