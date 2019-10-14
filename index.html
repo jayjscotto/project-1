@@ -39,7 +39,7 @@
             <div class="collapse navbar-collapse ml-5" id="navbar">
                     <ul class="navbar-nav pl-5">
                         <li class="nav-item">
-                            <button type="button" href="help.html" id="help" class="btn btn-outline-success mx-2"><!--data-toggle="modal" data-target="#helpModalCenter"-->Help</button>
+                            <button type="button" href="help.html" id="help" class="btn btn-outline-success mx-2" data-toggle="modal" data-target="#HelpModalCenter">Help</button>
                         </li>
                         <li class="nav-item">
                             <button type="button" href="about.html" id="about" class="btn btn-outline-success mx-2"><!-- data-toggle="modal" data-target="#aboutModalCenter" --> About</button>
@@ -125,7 +125,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="Login-Title">Account Information</h5> 
+                        <h5 class="modal-title" id="Account-Title">Account Information</h5> 
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
@@ -136,6 +136,89 @@
                 </div>
             </div>
         </div>
+
+    <!-- HELP MODAL -->
+    <div class="modal fade" id="HelpModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="help-title">Help</h5> 
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="help-info" class="modal-body">
+                            <div class="container mx-auto">
+                                    <p>Getting started with In Or Out!</p>
+                                
+                                    <p><strong>How Does It Work?</strong></p>
+                                
+                                    <p>When you decide your option of staying or going out we take you to a different engines to help you make your decision. With just a few taps on the screen, we now have access to new delicious restaurants ranging from every cuisine you can think of.
+                                    </p>
+                                
+                                    <!--FAQ Section-->
+                                    <button class="accordion">Why do I need to Sign In?</button>
+                                    <div class="panel">
+                                      <p>We implemented user accounts so you can keep track of your favorite recipes.</p>
+                                    </div>
+                                
+                                    <button class="accordion">How do I create an account?</button>
+                                    <div class="panel">
+                                      <p>You can login with your Google Account to create an account.</p>
+                                    </div>
+                                
+                                    <button class="accordion">Does this app really search my area?</button>
+                                    <div class="panel">
+                                      <p>Yes, this application will search your local area for restaurants.</p>
+                                    </div>
+                                
+                                    <button class="accordion">How can I clear and remove my account information?</button>
+                                    <div class="panel">
+                                      <p>Fill out the form below </p>
+                                    </div>
+                                
+                                    <!-- <div class="a"><h2>Contact Us</h2></div>
+                                
+                                    Form Input -->
+                                
+                                    <!-- <div class="container">
+                                      <form action="">
+                                          <div class="row">
+                                              <div class="col">
+                                                    <label for="fname">Name</label>
+                                                    <input type="text" id="name" name="name" placeholder="Your name..">
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col">
+                                                    <label for="email">Email</label>
+                                                    <input type="text" id="email" name="email" placeholder="Email">
+                                              </div>
+                                          </div> -->
+                                          <!-- <div class="row">
+                                              <div class="col">
+                                                  <div class="row">
+                                                    <div class="col"><label for="subject">Message</label></div>
+                                                  </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <textarea id="message" name="message" placeholder="Send us a message"></textarea>   
+                                                        </div>
+                                                    </div>
+                                                     
+                                              </div>
+                                          </div>
+                                      
+                                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Contact Us</button> -->
+                                      </form>
+                                    </div>
+                                
+                                  </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     <!-- HOME BUTTONS -->
     <div class="row home-row mt-5">

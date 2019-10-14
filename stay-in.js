@@ -46,9 +46,8 @@ $("#search-btn-recipe").on("click", function() {
         //Edamam API info	
         const APIkey = "a8f82bad4a3cd7ae69e3468a1f8e22d2";	
         const appID = "d2dacec9";	
-        const queryURL = `https://api.edamam.com/search?q=${mainIngridient}&app_id=${appID}&app_key=${APIkey}`	
-
-        // remaining part of query &mealType=${mealType}&cuisineType=${cuisineType}&health=${health} //
+        const queryURL = `https://api.edamam.com/search?q=${mainIngridient}&app_id=${appID}&app_key=${APIkey}`
+        //&mealType=${mealType}&cuisineType=${cuisineType}&health=${health}`
         
 
         //ajax call to get information from Edamam	
