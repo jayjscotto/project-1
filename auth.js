@@ -12,16 +12,16 @@ var firebaseConfig = {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
-  //make auth and firestore references
-    //db firestore init
-    const db = firebase.firestore();
-    //auth init
-    const auth = firebase.auth();
+//make auth and firestore references
+//db firestore init
+const db = firebase.firestore();
+//auth init
+const auth = firebase.auth();
 
-    //signup sign in and log out
-    const signupForm  = $("#signup-form");
-    const logOut = $("#logout");
-    const loginForm = $("#loginForm");
+//signup sign in and log out
+const signupForm  = $("#signup-form");
+const logOut = $("#logout");
+const loginForm = $("#loginForm");
 
 //signup method
 signupForm.on("submit", function(e) {
@@ -82,6 +82,8 @@ auth.onAuthStateChanged(function(user) {
         setUI(user);
 
     } else {
+        $("#recipe-favorites").empty();
+        $("#restaurant-favorites").empty();
         setUI();
         recipeSetUp([]);
         restaurantSetUp([]);
@@ -108,7 +110,7 @@ function restaurantSetUp(data) {
             $("#restaurant-favorites").append(button)
         })
     } else {
-        $(".logInReq").show();
+        console.log(`Log in to see your favorites`);
     }
 }
 
@@ -131,7 +133,7 @@ function recipeSetUp(data) {
             $("#recipe-favorites").append(button);
         })
     } else {
-        $(".logInReq").show();
+        console.log(`Log in to see your favorites`);
     }
 }
 

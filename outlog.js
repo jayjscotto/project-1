@@ -86,11 +86,11 @@ function restaurantSearch(searchVal) {
                 restaurantTitle.text(resultsArr[i].restaurant.name);
                 link.append(restaurantTitle);
                 //cuisine types
-                let cuisines = $("<p>").text(`Cuisine: ${resultsArr[i].restaurant.cuisines}`);
+                let cuisines = $("<p>").text(`Cuisine: ${resultsArr[i].restaurant.cuisines}`).attr("class", "ml-3");
                 //avg cost for two
-                let avgCost = $("<p>").text(`Average cost for two: $${resultsArr[i].restaurant.average_cost_for_two}.00`);
+                let avgCost = $("<p>").text(`Average cost for two: $${resultsArr[i].restaurant.average_cost_for_two}.00`).attr("class", "ml-3");
                 //address
-                let address = $("<p>").text(`Address: ${resultsArr[i].restaurant.location.address}`);
+                let address = $("<p>").text(`Address: ${resultsArr[i].restaurant.location.address}`).attr("class", "ml-3");
 
                 card.append(restaurantImage, link, cuisines, avgCost, address);
                 col.append(card);
