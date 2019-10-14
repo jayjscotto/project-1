@@ -14,14 +14,16 @@
 </head>
 
 <body>
-    <div id="nav" class="container">
+   
+    <div class="row nav-row">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-            <div class="container">
-                    <a class="navbar-brand" href="#">
-                    <h3>EatIn//EatOut</h3>
+            <div class="col-2">
+                <a class="navbar-brand" href="#">
+                    <h3 class="my-auto text-left mr-5">EatIn//EatOut</h3>
                 </a>
-
-                <form class="form-inline ml-5">
+            </div>
+            <div class="col-5">
+                <form class="form-inline mx-4">
                         <input id="quick-search-val" class="form-control mr-2" type="search" placeholder="Quick-Search">
                         <select id="quick-search" class="form-control mr-2 my-auto">
                             <option>Stay In</option>
@@ -33,155 +35,321 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </form>
-                <div class="collapse navbar-collapse " id="Navbar">
-                <ul class="navbar-nav ml-auto">
+            </div>
+            <div class="collapse navbar-collapse ml-5" id="navbar">
+                    <ul class="navbar-nav pl-5">
                         <li class="nav-item">
-                                <a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">Log In</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="help.html">Help</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a></li>
-                </ul>
+                            <button type="button" href="help.html" id="help" class="btn btn-outline-success mx-2" data-toggle="modal" data-target="#HelpModalCenter">Help</button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" href="about.html" id="about" class="btn btn-outline-success mx-2"><!-- data-toggle="modal" data-target="#aboutModalCenter" --> About</button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" id="logout" class="btn btn-outline-success mx-2">Log Out</button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" id="account" class=" logged-in btn btn-outline-success mx-2" data-toggle="modal" data-target="#AccountModalCenter" style="display:none">Account</button>
+                        </li>
+                        <li class="nav-item">
+                            <!--Login functionality begin-- Login Button-->
+                            <button type="button" id="login-button" class="logged-out btn btn-outline-success mx-2" data-toggle="modal" data-target="#logInModalCenter" style="display:none"> Log In</button>
+                        </li>
+                        <li class="nav-item">
+                            <!--Sign Up functionality begin-- Sign Up Button-->
+                            <button type="button" id="login-button" class="logged-out btn btn-outline-success mx-2" data-toggle="modal" data-target="#signUpModalCenter" style="display:none"> Sign Up</button>
+                        </li>
+                    </ul>
             </div>
         </nav>
     </div>
+
+    <!--Login modal-->
+    <div class="modal fade" id="logInModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Login-Title">Login</h5> 
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="login-body" class="modal-body">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="email-login">Email address:</label>
+                            <input type="email" autocomplete="email" class="form-control" id="email-login" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="password-login">Password:</label>
+                            <input type="password" autocomplete="current-password" class="form-control" id="password-login" placeholder="Password">
+                        </div>
+                        <button type="submit" id="login-submit" class="btn btn-success">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Sign Up modal-->
+    <div class="modal modal-dark fade" id="signUpModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="SignUp-Title">Sign Up</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="signup-body" class="modal-body">
+                <form id="signup-form">
+                    <div class="form-group">
+                        <label for="email-signup">Email address:</label>
+                        <input type="email" autocomplete="email" class="form-control" id="email-signup" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="password-signup">Password:</label>
+                        <input type="password" autocomplete="new-password" class="form-control" id="password-signup" placeholder="Password">
+                    </div>
+                    <button type="submit" id="signUp-submit" class="btn btn-success">Submit</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--ACCOUNT Modal-->
+    <div class="modal fade" id="AccountModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="Account-Title">Account Information</h5> 
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="account-info" class="modal-body">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- HELP MODAL -->
+    <div class="modal fade" id="HelpModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="help-title">Help</h5> 
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="help-info" class="modal-body">
+                            <div class="container mx-auto">
+                                    <p>Getting started with In Or Out!</p>
+                                
+                                    <p><strong>How Does It Work?</strong></p>
+                                
+                                    <p>When you decide your option of staying or going out we take you to a different engines to help you make your decision. With just a few taps on the screen, we now have access to new delicious restaurants ranging from every cuisine you can think of.
+                                    </p>
+                                
+                                    <!--FAQ Section-->
+                                    <button class="accordion">Why do I need to Sign In?</button>
+                                    <div class="panel">
+                                      <p>We implemented user accounts so you can keep track of your favorite recipes.</p>
+                                    </div>
+                                
+                                    <button class="accordion">How do I create an account?</button>
+                                    <div class="panel">
+                                      <p>You can login with your Google Account to create an account.</p>
+                                    </div>
+                                
+                                    <button class="accordion">Does this app really search my area?</button>
+                                    <div class="panel">
+                                      <p>Yes, this application will search your local area for restaurants.</p>
+                                    </div>
+                                
+                                    <button class="accordion">How can I clear and remove my account information?</button>
+                                    <div class="panel">
+                                      <p>Fill out the form below </p>
+                                    </div>
+                                
+                                    <!-- <div class="a"><h2>Contact Us</h2></div>
+                                
+                                    Form Input -->
+                                
+                                    <!-- <div class="container">
+                                      <form action="">
+                                          <div class="row">
+                                              <div class="col">
+                                                    <label for="fname">Name</label>
+                                                    <input type="text" id="name" name="name" placeholder="Your name..">
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col">
+                                                    <label for="email">Email</label>
+                                                    <input type="text" id="email" name="email" placeholder="Email">
+                                              </div>
+                                          </div> -->
+                                          <!-- <div class="row">
+                                              <div class="col">
+                                                  <div class="row">
+                                                    <div class="col"><label for="subject">Message</label></div>
+                                                  </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <textarea id="message" name="message" placeholder="Send us a message"></textarea>   
+                                                        </div>
+                                                    </div>
+                                                     
+                                              </div>
+                                          </div>
+                                      
+                                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Contact Us</button> -->
+                                      </form>
+                                    </div>
+                                
+                                  </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
     <!-- HOME BUTTONS -->
     <div class="row home-row mt-5">
         <div class="col p-0 my-5 text-center">
-            <img class="front-page-img1" src="images/photodune-2034238-italian-cooking-l.jpg" alt="in"
+            <img class="home-img" src="images/photodune-2034238-italian-cooking-l.jpg" alt="in"
             style="width:100%;" >
-            <button id="btn-in" type="button" class="btn btn-danger font-weight-bold text-dark" style="width: 10rem; height:4rem;">EatIn</button>
-            
+            <button id="btn-in" type="button" class="btn btn-success font-weight-bold text-light" style="width: 10rem; height:4rem;">Eat In</button>
         </div>
         <div class="col p-0 my-5 mx-0 text-center">
-            <img class="front-page-img2" src="images/Dining Out 2_0.jpg" alt="out" style="width:100%;">
-            <button id="btn-out" type="button" class="btn btn-danger font-weight-bold text-dark"
-                style="width: 10rem; height:4rem;">EatOut</button>
+            <img class="home-img" src="images/Dining Out 2_0.jpg" alt="out" style="width:100%;">
+            <button id="btn-out" type="button" class="btn btn-success font-weight-bold text-light"
+                style="width: 10rem; height:4rem;">Eat Out</button>
         </div>
     </div>
-
 
     <!-- EAT IN FORM -->
-    <div id="stay-in" class="row mt-4">
-        <div class="col-6 border border-rounded ">
-            <form>
-                <div class="form-group">
-                <label class="font-weight-bold" for="main-ingredient">Main Ingredient: </label>
-                <input type="text" class="form-control" id="main-ingredient" placeholder="ie. Steak">
+    <div id="stay-in" class="row my-4">
+        <div class="col">
+            <div class="row">
+                <div class="col-6 border border-rounded ">
+                    <form class="my-2">
+                        <div class="form-group">
+                        <h5 class="text-center font-weight-bold">* required fields</h5>
+                        <label class="font-weight-bold" for="main-ingredient">Main Ingredient*: </label>
+                        <input type="text" class="form-control" id="main-ingredient" placeholder="ie. Steak">
+                        </div>
+                        <div class="form-group">
+                        <label class="font-weight-bold" for="meal-type">Meal Type*:</label>
+                        <select id="meal-type-select" class="form-control">
+                                <option data-value=""></option>
+                                <option data-value="Breakfast">Breakfast</option>
+                                <option data-value="Brunch">Brunch</option>
+                                <option data-value="Lunch">Lunch</option>
+                                <option data-value="Dinner">Dinner</option>
+                                <option data-value="Snack">Snack</option>
+                        </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold"for="dietary-restriction">Dietary Restriction*: </label>
+                            <select id="dietary-select" class="form-control">
+                                    <option data-value=""></option>
+                                    <option data-value="alcohol-free">Alcohol-free</option>
+                                    <option data-value="celery-free">Celery-free</option>
+                                    <option data-value="dairy-free">Dairy-free</option>
+                                    <option data-value="gluten-free">Gluten-free</option>
+                                    <option data-value="keto-friendly">Keto</option>
+                                    <option data-value="shellfish-free">Shellfish</option>
+                                    <option data-value="paleo">Paleo</option>
+                                    <option data-value="peanut-free">Peanuts</option>
+                                    <option data-value="vegan">Vegan</option>
+                                    <option data-value="vegetarian">Vegetarian</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold"for="cuisine-type">Cuisine Type:</label>
+                            <select id="cuisine-select" class="form-control">
+                                    <option data-value=""></option>
+                                    <option data-value="American">American</option>
+                                    <option data-value="Chinese">Chinese</option>
+                                    <option data-value="French">French</option>
+                                    <option data-value="Indian">Indian</option>
+                                    <option data-value="Italian">Italian</option>
+                                    <option data-value="Japanese">Japanese</option>
+                                    <option data-value="Mediterranean">Mediterranean</option>
+                                    <option data-value="Mexican">Mexican</option>
+                                    <option data-value="Middle Eastern">Middle Eastern</option>
+                            </select>
+                        </div>
+                        <button id="search-btn-recipe" class="btn btn-outline-success mx-3 my-2 my-sm-0">Search</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                <label class="font-weight-bold" for="meal-type">Meal Type:</label>
-                <select id="meal-type-select" class="form-control">
-                        <option data-value=""></option>
-                        <option data-value="Breakfast">Breakfast</option>
-                        <option data-value="Brunch">Brunch</option>
-                        <option data-value="Lunch">Lunch</option>
-                        <option data-value="Dinner">Dinner</option>
-                        <option data-value="Snack">Snack</option>
-                </select>
+                <div class="col-6 border border-rounded ">
+                    <h5 class="text-center my-3">Favorites (must be logged in) :</h5>
+                    <div id="recipe-favorites"></div>
                 </div>
-                <div class="form-group">
-                    <label class="font-weight-bold"for="dietary-restriction">Dietary Restriction:</label>
-                    <select id="dietary-select" class="form-control">
-                            <option data-value="alcohol-free">Alcohol-free</option>
-                            <option data-value="celery-free">Celery-free</option>
-                            <option data-value="dairy-free">Dairy-free</option>
-                            <option data-value="gluten-free">Gluten-free</option>
-                            <option data-value="keto-friendly">Keto</option>
-                            <option data-value="shellfish-free">Shellfish</option>
-                            <option data-value="paleo">Paleo</option>
-                            <option data-value="peanut-free">Peanuts</option>
-                            <option data-value="vegan">Vegan</option>
-                            <option data-value="vegetarian">Vegetarian</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="font-weight-bold"for="cuisine-type">Cuisine Type:</label>
-                    <select id="cuisine-select" class="form-control">
-                            <option data-value="American">American</option>
-                            <option data-value="Chinese">Chinese</option>
-                            <option data-value="French">French</option>
-                            <option data-value="Indian">Indian</option>
-                            <option data-value="Italian">Italian</option>
-                            <option data-value="Japanese">Japanese</option>
-                            <option data-value="Mediterranean">Mediterranean</option>
-                            <option data-value="Mexican">Mexican</option>
-                            <option data-value="Middle Eastern">Middle Eastern</option>
-                    </select>
-                </div>
-                <button id="search-btn" class="btn  btn-danger mx-3 my-2 my-sm-0">Search</button>
-            </form>
+            </div>
+            <div class="row">
+                <div id="recipe-results"class="col text-center my-3"></div>
+            </div>
+            <div id="recipe-cards" class="row my-2"></div>
         </div>
-        <div class="col-6 border border-rounded ">
-            <h4 class="text-center">Please add your favorites here</h4>
-        </div>
-    </div>
-    <div id="recipe-cards" class="row my-4 ">
     </div>
 
     <!--EAT OUT FORM-->
-    <div id="go-out" class="row mt-4">
-        <div class="col-6 border border-rounded border-danger">
-            <form>
-                <div class="form-group">
-                    <label for="location">Location</label>
-                    <input type="text" class="form-control" id="restaurant-location" placeholder="ie. New York City">
+    <div id="go-out" class="row my-4">
+        <div class="col">
+            <div class="row">
+                <div class="col-6 border border-rounded">
+                    <form class="my-4">
+                        <div class="form-group">
+                            <label for="location">Location:</label>
+                            <input type="text" class="form-control" id="restaurant-location" placeholder="ie. New York">
+                        </div>
+                        <button id="search-btn-restaurant" class="btn btn-outline-success mx-3 my-2 my-sm-0">Search</button>
+                    </form>
                 </div>
-                <!--
-                <div class="form-group">
-                    <label for="dietary-restriction">Dietary Restriction:</label>
-                    <select id="dietary-select" class="form-control">
-                            <option data-value="alcohol-free">Alcohol-free</option>
-                            <option data-value="celery-free">Celery-free</option>
-                            <option data-value="dairy-free">Dairy-free</option>
-                            <option data-value="gluten-free">Gluten-free</option>
-                            <option data-value="keto-friendly">Keto</option>
-                            <option data-value="shellfish-free">Shellfish</option>
-                            <option data-value="paleo">Paleo</option>
-                            <option data-value="peanut-free">Peanuts</option>
-                            <option data-value="vegan">Vegan</option>
-                            <option data-value="vegetarian">Vegetarian</option>
-                    </select>
+                <div class="col-6 border border-rounded">
+                    <h5 class="text-center my-3">Favorites (must be logged in) :</h5>
+                    <div id="restaurant-favorites">
+                        <h4 class="logInReq text-center">Log In or Sign Up to set and/or view Favorites</h4>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="cuisine-type">Cuisine Type</label>
-                    <select id="cuisine-select" class="form-control">
-                            <option data-value="American">American</option>
-                            <option data-value="Chinese">Chinese</option>
-                            <option data-value="French">French</option>
-                            <option data-value="Indian">Indian</option>
-                            <option data-value="Italian">Italian</option>
-                            <option data-value="Japanese">Japanese</option>
-                            <option data-value="Mediterranean">Mediterranean</option>
-                            <option data-value="Mexican">Mexican</option>
-                            <option data-value="Middle Eastern">Middle Eastern</option>
-                    </select>
-                </div>-->
-                <button id="search-btn-restaurant" class="btn btn-outline-success mx-3 my-2 my-sm-0">Search</button>
-            </form>
+            </div>
+            <div class="row">
+                <div id="restaurant-results" class="col mx-auto text-center my-3"></div>
+            </div>
+            <div id="restaurant-cards" class="row my-2 mx-auto"></div>
         </div>
-        <div class="col-6 border border-rounded border-danger">
-            favorites to go here later
-        </div>
-    </div>
-    <div id="restaurant-cards" class="row my-4 ">
     </div>
 
 
     <!-- Footer -->
-    <footer class="page-footer font-small  mt-5 ">
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2023 Copyright by EatIn//EatOut</div>
+    <footer class="footer bg-dark fixed-bottom mt-5">
+        <div class="text-center pt-2">
+            <a class="footer-link" href="https://www.github.com/jayjscotto/project-1"> 
+                <ion-icon name="logo-github" size="large"></ion-icon>
+            </a>
+        </div>
     </footer>
 
-    <script src="outlog.js"></script>
-    <script src="Stay-in.js"></script>
-    <script src="app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-analytics.js"></script>
+    <script type="text/javascript" src="outlog.js"></script>
+    <script type="text/javascript" src="Stay-in.js"></script>
+    <script type="text/javascript" src="auth.js"></script>
+    <script type="text/javascript" src="app.js"></script>
     
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
