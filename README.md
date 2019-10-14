@@ -49,7 +49,7 @@ Vanilla.js
 
 API
 * [Zomato](https://developers.zomato.com/api) - The recipe search framework
-* [Maven](https://developer.edamam.com/) - the restaurant search framework
+* [Edamam](https://developer.edamam.com/) - the restaurant search framework
 
 
 ## Acknowledgments
