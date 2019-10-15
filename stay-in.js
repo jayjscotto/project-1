@@ -1,15 +1,20 @@
 //click listener for the search button	
 $("#search-btn-recipe").on("click", function(e) {	
     e.preventDefault();	
-    $("#recipe-cards").empty();	
-    $("#restaurant-results").empty();
-    $("#recipe-results").empty();
+    // $("#recipe-cards").empty();	
+    // $("#restaurant-results").empty();
+    // $("#recipe-results").empty();
 
     recipeSearch($("#main-ingredient").val());
 })
 
 
     function recipeSearch(searchVal) {
+        //empty correct divs
+        $("#recipe-cards").empty();	
+        $("#restaurant-results").empty();
+        $("#recipe-results").empty();
+
         //value of search input
         let mainIngridient = searchVal	
         // let mealType = $("#meal-type-select").val();
