@@ -20,6 +20,8 @@ function setUI (user){
     }
 }
 
+
+
 $("#stay-in").hide();
 $("#go-out").hide();
 
