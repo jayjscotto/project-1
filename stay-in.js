@@ -51,7 +51,7 @@ $("#search-btn-recipe").on("click", function(e) {
         //Edamam API info	
         const APIkey = "a8f82bad4a3cd7ae69e3468a1f8e22d2";	
         const appID = "d2dacec9";	
-        const queryURL = `http://api.edamam.com/search?app_id=${appID}&app_key=${APIkey}&q=${mainIngridient}`
+        const queryURL = `https://api.edamam.com/search?app_id=${appID}&app_key=${APIkey}&q=${mainIngridient}`
 
         //ajax call to get information from Edamam	
         $.ajax({	
