@@ -39,6 +39,8 @@ signupForm.on("submit", function(e) {
         //close and reset the modal
         signUpModal.modal('hide');
         $("#signup-form")[0].reset();
+    }).catch(function(err){
+        console.log(err.message);
     });
 })
 
@@ -60,6 +62,8 @@ loginForm.on("submit", function(e) {
         const logInModal = $("#logInModalCenter");
         logInModal.modal('hide');
         $("#loginForm")[0].reset();
+    }).catch(function(err) {
+        console.log(err.message);
     })
 })
 
