@@ -194,3 +194,9 @@ display: inline-block;
 {
   transition: 0.5s;
 }
+
+@media only screen and (max-width: 1170px) {
+  #quick-search-area {
+    display: none;
+  }
+}
