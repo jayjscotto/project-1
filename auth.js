@@ -66,6 +66,7 @@ loginForm.on("submit", function(e) {
     }).catch(function(err) {
         console.log(err.message);
         $("#login-error").text('Incorrect username or password');
+        $("#loginForm")[0].reset();
     })
 })
 
