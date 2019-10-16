@@ -23,7 +23,7 @@
                 </a>
             </div>
             <div class="col-5">
-                <form class="form-inline mx-4">
+                <form id="quick-search-area" class="form-inline mx-4">
                         <input id="quick-search-val" class="form-control mr-2" type="search" placeholder="Quick-Search">
                         <select id="quick-search" class="form-control mr-2 my-auto">
                             <option>Stay In</option>
@@ -74,6 +74,7 @@
                     </button>
                 </div>
                 <div id="login-body" class="modal-body">
+                    <div class="text-danger" id="login-error"></div>
                     <form id="loginForm">
                         <div class="form-group">
                             <label for="email-login">Email address:</label>
@@ -110,6 +111,7 @@
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group">
+                        <div class="text-danger" id="signup-error"></div>
                         <label for="password-signup">Password:</label>
                         <input type="password" autocomplete="new-password" class="form-control" id="password-signup" placeholder="Password">
                     </div>

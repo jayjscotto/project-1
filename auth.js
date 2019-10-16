@@ -41,6 +41,7 @@ signupForm.on("submit", function(e) {
         $("#signup-form")[0].reset();
     }).catch(function(err){
         console.log(err.message);
+        $("#signup-error").text("Password must be at least six (6) characters long");
     });
 })
 
@@ -64,6 +65,7 @@ loginForm.on("submit", function(e) {
         $("#loginForm")[0].reset();
     }).catch(function(err) {
         console.log(err.message);
+        $("#login-error").text('Incorrect username or password');
     })
 })
 
