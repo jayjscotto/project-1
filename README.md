@@ -1,4 +1,4 @@
-# project-1
+# project-1 name
 EatIn/EatOut
 
 # Contributors:
@@ -48,8 +48,8 @@ Vanilla.js
 
 
 API
-* [Zomato](https://developers.zomato.com/api) - The recipe search framework
-* [Edamam](https://developer.edamam.com/) - the restaurant search framework
+* [Zomato](https://developers.zomato.com/api) - This is the restaurant framework
+* [Edamam](https://developer.edamam.com/) - This is the recipe framework
 
 
 ## Acknowledgments
