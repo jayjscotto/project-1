@@ -1,58 +1,31 @@
-# project-1
-EatIn/EatOut
+# In Or Out
+This application uses Edamam API and Zomato API to display recipes, or restaurants, depending on the choice of the user.
+User's can register with email, and add favorites!
 
-# Contributors:
-Jason Scotto
-Sugeeta Gupta
-Wismy Seide
-Chris Coto
-Ahmed Shallan
+![inorout](https://user-images.githubusercontent.com/50807550/72118435-1fe00800-331f-11ea-8ec2-e0739b2d6a33.gif)
 
-# EatIn/EatOut
-
-This application uses Edamam API and Zomato API. The Edamam API helps users search recipes.  The Zomato API helps users search restaurants in any city that they choose.
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-Choose Eat In and search your favorite recipe.
-
-Choose Eat Out and search a city for current restaurants. 
-
-If you get a search you do not like, you can search a new recipe.
-
-We have login for users who want to favorite their recipes.
-
-### Prerequisites
-
-All you need is a mobile phone/computer that has active internet.
-
-
-## Running the tests
-
-Search for a recipe and checkout the console log
-Search for a restaurant and checkout the console log
-
+## Usage
+`git clone` this repository
+Open a live server and navigate to that port in your browser
+OR
+Head to the deployed URL: https://jayjscotto.github.io/project-1/
 
 ## Built With
+* [Javascript](https://www.javascript.com/) - The scripting language used to manipulate the DOM.  
+* [jQuery](http://jquery.com/) - Javascript library for DOM and CSS manipulation.
+* [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - Mark up language used for structuring pages. 
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Stylesheet language used to describe presentation of pages. 
+* [BootstrapCDN](https://getbootstrap.com/docs/4.1/getting-started/introduction/) - The web framework used for styling.
+* [Firebase Auth](https://firebase.google.com/products/auth/) - Firebase Authentication aims to make building secure authentication systems easy, while improving the sign-in and onboarding experience for end users.
 
-HTML
-CSS
-Bootstrap
-Javascript
-Jquery
-Ajax
-Firebase
-Vanilla.js
+## External API Utilization
+* [Zomato](https://developers.zomato.com/api) - Recipe Search Framework
+* [Edamam](https://developer.edamam.com/) -  Restaurant Search Framework
 
-
-API
-* [Zomato](https://developers.zomato.com/api) - The recipe search framework
-* [Edamam](https://developer.edamam.com/) - the restaurant search framework
-
-
-## Acknowledgments
-
-* Rutgers Coding Bootcamp TAs and Instructors for their continuing support and helping us resolve troubleshooting
+## Contributors:
+-Jason Scotto 
+-Sugeeta Gupta 
+-Wismy Seide 
+-Chris Coto 
+-Ahmed Shallan
 
